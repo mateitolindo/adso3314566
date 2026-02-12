@@ -1,24 +1,20 @@
-# adso3314566
+# ADSO3314566
 
-## Analisis y desarrollo de software 
+## Analisis y Desarrollo de Software
 
-## Centro de procesos Industriales y construccion 
+### Centro de procesos industriales y Construccion
 
 **Regional Caldas**
 
-
 ---
-  ID   THEME | description 
-|--- |---        |---                                    |  
-|01  |Emet       |Work Flow - Markup & Styling          |
-|02  |Html       |Structure - Hypertex Markup Languaje  | 
-|03  |Css        |Look & fall - Cascading Style Sheets  |
-|04  |Javascript |Behavior - programing Language        |
 
-[adso Files DRIVE](https://tinyurl.com/wnk334u)
+| ID | THEME | Description                               |
+|--- | ---        |---                                   |
+|01  | Emmet      |Work Flow - Markup & Styling          |
+|02  | Html       |Structure - Hypertext Markup Language |
+|03  | Css        |Look & Fell - Cascading Style Sheets  |
+|04  | Javascript |Behavior - Programing Language        |
+
+[ADSO Files DRIVE](https://tinyurl.com/wnkk334u)
+
 [VERCEL URL](https://vercel.com)
-## public repository ADSO 3314566
-
-### lorem insum dolor 
-
-
