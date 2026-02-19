@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-emmet</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Federant&family=Playwrite+CU+Guides&display=swap');
+
+        body {
+            background-color: #000000;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23054400' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%231A5500'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .btn-back {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #1A5500;
+            border: 2px solid #1A5500;
+            border-radius: 5px;
+            font-family: 'Archivo Black', sans-serif;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .btn-back:hover {
+            background-color: #1A5500;
+            color: white;
+            box-shadow: 0 0 15px #1A5500;
+        }
+
+        /* --- NUEVOS ESTILOS PARA EL CUADRO DE NESTING --- */
+        .nesting-container {
+            background-color: rgba(30, 30, 30, 0.8); /* Fondo oscuro semitransparente */
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            width: 400px;
+            text-align: left;
+            font-family: 'Archivo Black', sans-serif;
+            backdrop-filter: blur(5px);
+        }
+
+        .nesting-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .label {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .emmet-string {
+            font-family: monospace;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .result-box {
+            border: 2px solid #a4ff00; /* Color verde neón */
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(164, 255, 0, 0.4);
+            background-color: #121212;
+        }
+
+        code {
+            color: #a4ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            white-space: pre;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="btn-back">← Back</a>
+
+    <main>
+        <img src="img/emmet.svg" alt="Emmet" width="200">
+        
+        <div class="nesting-container">
+            <span class="nesting-title">Nesting ></span>
+            
+            <span class="label">Example</span>
+            <span class="emmet-string">ul>li>a</span>
+
+            <span class="label">Result</span>
+            <div class="result-box">
+<code>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
