@@ -1,0 +1,39 @@
+section article {
+    
+    background: linear-gradient(135deg, #ff7e5f, #e24c26);
+    color: #ffffff; 
+    border-radius: 50%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    text-shadow: 0 4px rgba(0, 0, 0, 0.2); 
+    font-size: 5rem; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(226, 76, 38, 0.3); 
+}
+
+
+section article:hover {
+    cursor: pointer;
+    animation: animaticle 1.4s ease-in-out infinite;
+    box-shadow: 0 15px 30px rgba(226, 76, 38, 0.5); 
+}
+
+section article h3 {
+    margin: 0;
+    pointer-events: none;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+@keyframes animaticle {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); 
+    }
+}

@@ -103,10 +103,56 @@
                 }
 
                 section{
-                    background-color: #000;
+                    background-color: #000000;
                     border-radius: 0.2rem;
                     min-width: 380px;
                     padding: 1rem;
+                    h3 {
+                       border-bottom: 2px dotted #ffffff;
+                       margin: 0;
+                    }
                 }
+                menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            a:link, a:visited {
+                background-color: darkgray;
+                color: black;
+                border-radius: 12rem;
+                padding: 0.4rem;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                span {
+                    background-color: rgb(178, 34, 41);
+                    color: floralwhite;
+                    border-radius: 50%;
+                    font-size: 2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 80px;
+                    width: 80px;
+                }
+                h4 {
+                    margin: 0;
+                    text-align-last: left;
+                    text-indent: 0.2rem;
+                    width: 225px;
+                }
+            small {
+                display: block;
+                font-size: 0.7rem;
+                text-indent: 0.2rem;
+                width: 225px;
             }
+            transition: transform 0.4s ease-in;
+            &:hover {
+                transform: scale(1.05) translateX(15px);
+            }
+        }
+    }
+}
+            
         
