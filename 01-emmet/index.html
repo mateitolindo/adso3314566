@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-emmet</title>
+    <link rel="stylesheet" href="../src/css/01-emmet.css">
+   
+</head>
+<body>
+
+    <a href="../index.html" class="home-btn" title="Ir al inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
+        </svg>
+    </a>
+
+    <main>
+        <img src="../src/imgs/emmet.svg" alt="Emmet" width="200">
+
+        <div class="nesting-container">
+            <span class="nesting-title">Nesting &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">ul&gt;li&gt;a</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Brother Elements &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">section+header+nav</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;section&gt;&lt;/section&gt;
+&lt;header&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;/nav&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Repeat Elements &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">ul&gt;li*3</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Class Attribute &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">div.contenedor</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;div class="contenedor"&gt;&lt;/div&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Multiple Classes &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">div.clase1.clase2.clasen</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;div class="clase1 clase2 clasen"&gt;&lt;/div&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Identifier Attribute &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">nav#menu</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;nav id="menu"&gt;&lt;/nav&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Add Text &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">div{Lorem Ipsum}</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;div&gt;Lorem Ipsum&lt;/div&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Customize Attributes &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">a[href=google.com]</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;a href="google.com"&gt;&lt;/a&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Consecutive Numbers &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">ul&gt;li.num$*3</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;ul&gt;
+  &lt;li class="num1"&gt;&lt;/li&gt;
+  &lt;li class="num2"&gt;&lt;/li&gt;
+  &lt;li class="num3"&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Level Up &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">section&gt;article&gt;div^p</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;section&gt;
+  &lt;article&gt;
+    &lt;div&gt;&lt;/div&gt;
+  &lt;/article&gt;
+  &lt;p&gt;&lt;/p&gt;
+&lt;/section&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Group Elements &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">(header&gt;nav)+(section&gt;article)</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;header&gt;&lt;nav&gt;&lt;/nav&gt;&lt;/header&gt;
+&lt;section&gt;&lt;article&gt;&lt;/article&gt;&lt;/section&gt;</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Generate Lorem &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">lorem10</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>Lorem ipsum dolor sit amet consectetur...</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Documents HTML &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">html:5</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>Documento HTML5 completo</code></div>
+        </div>
+
+        <div class="nesting-container">
+            <span class="nesting-title">Reto &gt;</span>
+            <span class="label">Example</span> <span class="emmet-string">header#header&gt;nav.navbar...</span>
+            <span class="label">Result</span>
+            <div class="result-box"><code>&lt;header id="header"&gt;...&lt;/header&gt;</code></div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+        
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #a4ff00;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(164, 255, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            color: #a4ff00;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+        }
+
+        menu a {
+            background: #111;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        menu a:hover {
+            border-color: #a4ff00;
+            background: #1a1a1a;
+            transform: translateX(10px);
+        }
+
+        menu a span {
+            color: #a4ff00;
+            margin-right: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        menu aside {
+            text-align: left;
+        }
+
+        menu aside h4 {
+            margin: 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        menu aside small {
+            color: #888;
+            font-size: 0.75rem;
+        }

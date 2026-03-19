@@ -1,0 +1,112 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+        
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Permite scroll natural */
+            min-height: 100vh;
+            margin: 0;
+            padding: 60px 0; /* Espacio para el botón fijo */
+        }
+
+        /* Botón de casita fijo en la esquina */
+        .home-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #e34f26;
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+        .home-link:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px #e34f26);
+        }
+
+        main {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #e34f26; 
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(227, 79, 38, 0.2);
+        }
+
+        h1 { font-size: 1.5rem; margin-bottom: 5px; }
+        h3 { color: #e34f26; font-weight: 400; margin-bottom: 30px; font-size: 0.9rem; }
+
+        menu {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 0;
+            margin: 0;
+        }
+
+        menu a {
+            background: #111;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        menu a:hover {
+            border-color: #e34f26;
+            background: #1a1a1a;
+            transform: translateX(10px);
+        }
+
+        menu a span {
+            color: #e34f26;
+            margin-right: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        menu aside h4 {
+            margin: 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            
+        }
+        header {
+                h1 {
+                    font-size: 2rem;
+                }
+                h2 {
+                    font-size: 1rem;
+                    color: #fff9;
+                }
+                h1, h2 {
+                    text-align: center;
+                }
+
+                section{
+                    background-color: #000;
+                    border-radius: 0.2rem;
+                    min-width: 380px;
+                    padding: 1rem;
+                }
+            }
+        
