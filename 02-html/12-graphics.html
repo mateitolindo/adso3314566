@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="../02-html/index.html"class="home-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
+        </svg>
+    </a>
+     <link rel="stylesheet" href="../src/css/02-html.css">
+</body>
+<style>
+    .graficos-box { 
+        background-color: #e0e0ce; 
+        color: black; 
+        padding: 20px; 
+        width: 400px; 
+        border-radius: 4px; 
+        font-family: sans-serif;
+    }
+    .graficos-box h2 { 
+        margin-top: 0; 
+        font-size: 1.2em; 
+        border-bottom: 2px solid black; 
+    }
+    .canvas-area { 
+        border: 1px solid #999; 
+        margin: 10px 0; 
+        background: white; 
+        display: block;
+    }
+    hr { 
+        border: 0; 
+        border-top: 2px solid black; 
+        margin: 20px 0; 
+    }
+</style>
+<div class="graficos-box">
+    <h2>Canvas</h2>
+    <canvas id="miCanvas" width="300" height="100" class="canvas-area"></canvas>
+    
+    <hr>
+    
+    <h2>SVG</h2>
+    <svg width="300" height="100">
+        <rect x="20" y="10" width="80" height="70" fill="#1e71be" />
+        <circle cx="150" cy="45" r="35" fill="#1fb122" />
+        <text x="210" y="85" font-size="14">SVG</text>
+    </svg>
+</div>
+
+<script>
+    const canvas = document.getElementById('miCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Rectángulo Naranja
+    ctx.fillStyle = '#e69138';
+    ctx.fillRect(20, 20, 90, 45);
+
+    // Círculo Rojo
+    ctx.fillStyle = '#cc4125';
+    ctx.beginPath();
+    ctx.arc(160, 42, 28, 0, Math.PI * 2);
+    ctx.fill();
+</script>
+</html>
