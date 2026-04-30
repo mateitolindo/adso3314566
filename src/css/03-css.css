@@ -1,0 +1,165 @@
+/* Importamos una fuente sans-serif moderna de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@400;600&display=swap');
+
+body {
+    /* Fondo morado con un degradado suave para dar profundidad */
+    background: radial-gradient(circle at top, #332581 0%, #bc57ff 100%);
+    background-attachment: fixed;
+    /* Fuente sans-serif predeterminada */
+    font-family: 'Inter', 'Montserrat', sans-serif;
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+}
+.home-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #e34f26;
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 900px;
+    width: 100%;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+header h4 {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+/* El logo circular del centro */
+main img {
+    object-fit: cover;
+    border: 6px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+main img:hover {
+    transform: scale(1.05);
+}
+
+.menus {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menus > div {
+    flex: 1;
+    min-width: 300px;
+}
+
+.menus h3 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0;
+}
+
+/* Los botones tipo píldora */
+menu a {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #4c1d95; /* Texto en morado oscuro */
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+menu a:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+menu a span {
+    background-color: #7c3aed; /* Morado más claro para el número */
+    color: white;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    margin-right: 1rem;
+}
+
+menu a h4 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Sección de información adicional */
+section {
+    margin-top: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    backdrop-filter: blur(5px);
+}
+
+section h3 {
+    margin-top: 0;
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+section li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+section li::before {
+    content: "•";
+    color: #a78bfa;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Mastery - CSS File</title>
+    
+    <!-- Vínculo al archivo de estilos externo -->
+    <link rel="stylesheet" href="../src/css/03-css.css">
+
+    <style>
+        /* Estilos específicos para el botón Home en esta página */
+        .home-btn {
+            position: fixed; /* Lo mantiene fijo en la pantalla */
+            top: 20px;       /* Distancia desde arriba */
+            left: 20px;      /* Distancia desde la izquierda */
+            z-index: 1000;   /* Asegura que no lo tape el contenido */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit;  /* Toma el color definido en tu CSS externo */
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .home-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Espaciado para que el encabezado no quede debajo del botón */
+        main {
+            padding-top: 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: sans-serif; /* Ajuste básico de fuente */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón Home posicionado en la esquina superior izquierda -->
+    <a href="index.html" class="home-btn" title="Volver al Hub">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>02 - CSS File</h1>
+            <h4>External Stylesheet Method</h4>
+        </header>
+
+        <section>
+            <p>
+                Esta es la forma más profesional de trabajar. Al separar el <strong>Markup (HTML)</strong> 
+                del <strong>Styling (CSS)</strong> en un archivo externo, logramos un código más limpio y fácil de mantener.
+            </p>
+            
+            <div style="background: #f4f4f4; padding: 15px; border-left: 5px solid #333; margin-top: 20px;">
+                <code>&lt;link rel="stylesheet" href="../src/css/03-css.css"&gt;</code>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

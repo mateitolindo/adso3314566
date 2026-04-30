@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Mastery - Attr Style</title>
+    <!-- Mantenemos el vínculo externo solo si quieres heredar estilos base, 
+         pero los estilos de esta página se definirán inline -->
+    <link rel="stylesheet" href="../src/css/03-css.css">
+</head>
+<body style="background-color: #f0f2f5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0;">
+
+    <!-- Botón Home posicionado con Atributo Style -->
+    <a href="index.html" 
+       title="Volver al Hub" 
+       style="position: fixed; top: 20px; left: 20px; z-index: 1000; text-decoration: none; color: #333; display: flex; align-items: center; justify-content: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
+        </svg>
+    </a>
+
+    <main style="padding: 80px 20px; max-width: 800px; margin: 0 auto; text-align: center;">
+        <header style="margin-bottom: 40px;">
+            <h1 style="color: #2c3e50; font-size: 2.5rem; margin-bottom: 10px;">03 - Attr Style</h1>
+            <h4 style="color: #7f8c8d; font-weight: 400;">Inline Styles Method</h4>
+        </header>
+
+        <section style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <p style="line-height: 1.6; color: #444; font-size: 1.1rem;">
+                En este ejemplo, estamos aplicando el diseño mediante el atributo <strong>style</strong> dentro de cada etiqueta. 
+                Aunque funciona, hace que el HTML sea difícil de leer y mantener.
+            </p>
+            
+            <div style="background: #272822; color: #f8f8f2; padding: 15px; border-radius: 8px; margin-top: 25px; text-align: left; overflow-x: auto;">
+                <code style="font-family: 'Courier New', Courier, monospace;">&lt;h1 style="color: blue;"&gt;Hola Mundo&lt;/h1&gt;</code>
+            </div>
+        </section>
+
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #95a5a6;">
+            *Nota: Los estilos inline tienen la mayor especificidad, ganándole a los estilos de archivos externos.
+        </p>
+    </main>
+
+</body>
+</html>

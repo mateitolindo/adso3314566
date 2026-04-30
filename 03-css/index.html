@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Mastery - Hub</title>
+    <!-- Vinínculo al archivo de estilos que ya tienes -->
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    
+    <style>
+        /* Estilos para posicionar el botón en la esquina superior izquierda */
+        .home-btn {
+            position: fixed; /* Fijo en la pantalla */
+            top: 20px;       /* Distancia del borde superior */
+            left: 20px;      /* Distancia del borde izquierdo */
+            z-index: 1000;   /* Por encima de todo el contenido */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo ligero para que se vea */
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .home-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Ajuste opcional para que el título h1 no se encime con el botón en móviles */
+        header {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón flotante en la esquina superior izquierda -->
+    <a href="../index.html" class="home-btn" title="Ir al inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>03-CSS</h1>
+            <h4>Work flow – Markup & Styling</h4>
+        </header>
+
+        <!-- Imagen de perfil o logo del canal "Matt" -->
+        <img src="../logo-css.png" alt="Profile Logic">
+
+        <div class="menus">
+            <!-- Sección: Fundamentos (Columna Izquierda) -->
+            <div>
+                <h3>ref 2.1 - Core</h3>
+                <menu>
+                    <a href="01-document-style.html"><span>01</span> <h4>Document Style</h4></a>
+                    <a href="02-css-file.html"><span>02</span> <h4>CSS File</h4></a>
+                    <a href="03-attr-style.html"><span>03</span> <h4>Attr Style</h4></a>
+                    <a href="04-basic-selectors.html"><span>04</span> <h4>Basic Selectors</h4></a>
+                    <a href="05-advanced-selectors.html"><span>05</span> <h4>Advanced Selectors</h4></a>
+                    <a href="06-specificity.html"><span>06</span> <h4>Specificity</h4></a>
+                    <a href="07-inheritance.html"><span>07</span> <h4>Inheritance</h4></a>
+                    <a href="08-relative-units.html"><span>08</span> <h4>Relative Units</h4></a>
+                    <a href="09-absolute-units.html"><span>09</span> <h4>Absolute Units</h4></a>
+                    <a href="10-percentage-units.html"><span>10</span> <h4>Percentage Units</h4></a>
+                    <a href="11-colors.html"><span>11</span> <h4>Colors</h4></a>
+                    <a href="12-colors-alpha.html"><span>12</span> <h4>Colors Alpha</h4></a>
+                    <a href="13-box-model.html"><span>13</span> <h4>Box Model</h4></a>
+                    <a href="14-background.html"><span>14</span> <h4>Background</h4></a>
+                    <a href="15-position.html"><span>15</span> <h4>Position</h4></a>
+                    <a href="16-float.html"><span>16</span> <h4>Float</h4></a>
+                    <a href="17-visualization.html"><span>17</span> <h4>Visualization</h4></a>
+                    <a href="18-typography.html"><span>18</span> <h4>Typography</h4></a>
+                    <a href="19-text.html"><span>19</span> <h4>Text</h4></a>
+                    <a href="20-pseudoclasses.html"><span>20</span> <h4>Pseudoclasses</h4></a>
+                    <a href="21-lists.html"><span>21</span> <h4>Lists</h4></a>
+                    <a href="22-cursors.html"><span>22</span> <h4>Cursors</h4></a>
+                    <a href="23-sprite.html"><span>23</span> <h4>Sprite</h4></a>
+                    <a href="24-challenge-layout.html"><span>24</span> <h4>Challenge Layout</h4></a>
+                </menu>
+            </div>
+
+            <!-- Sección: Avanzado (Columna Derecha) -->
+            <div>
+                <h3>ref 3.0 - Next Gen</h3>
+                <menu>
+                    <a href="25-new-selectors.html"><span>25</span> <h4>New Selectors</h4></a>
+                    <a href="26-border-radius.html"><span>26</span> <h4>Border Radius</h4></a>
+                    <a href="27-box-shadow.html"><span>27</span> <h4>Box Shadow</h4></a>
+                    <a href="28-challenge-shadow.html"><span>28</span> <h4>Challenge Shadow</h4></a>
+                    <a href="29-new-backgrounds.html"><span>29</span> <h4>New Backgrounds</h4></a>
+                    <a href="30-text-shadow.html"><span>30</span> <h4>Text Shadow</h4></a>
+                    <a href="31-filters.html"><span>31</span> <h4>Filters</h4></a>
+                    <a href="32-clip-path.html"><span>32</span> <h4>Clip Path</h4></a>
+                    <a href="33-web-fonts.html"><span>33</span> <h4>Web Fonts</h4></a>
+                    <a href="34-variables.html"><span>34</span> <h4>Variables</h4></a>
+                    <a href="35-transformations.html"><span>35</span> <h4>Transformations</h4></a>
+                    <a href="36-transitions.html"><span>36</span> <h4>Transitions</h4></a>
+                    <a href="37-animations.html"><span>37</span> <h4>Animations</h4></a>
+                    <a href="38-media-queries.html"><span>38</span> <h4>Media Queries</h4></a>
+                    <a href="39-challenge-responsive.html"><span>39</span> <h4>Challenge Responsive</h4></a>
+                    <a href="40-steps.html"><span>40</span> <h4>Steps</h4></a>
+                    <a href="41-functions.html"><span>41</span> <h4>Functions</h4></a>
+                    <a href="42-parallax.html"><span>42</span> <h4>Parallax</h4></a>
+                    <a href="43-flexbox.html"><span>43</span> <h4>Flexbox</h4></a>
+                    <a href="44-grid.html"><span>44</span> <h4>Grid</h4></a>
+                    <a href="45-challenge-grid.html"><span>45</span> <h4>Challenge Grid</h4></a>
+                </menu>
+            </div>
+        </div>
+        
+    </main>
+
+</body>
+</html>
