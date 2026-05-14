@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-colors</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        div.colors {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+            &:nth-of-type(2) {
+                div {
+                    font-size: 0.5rem;
+                }
+            }
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                div{
+                    color: black;
+                    height: 70px;
+                    width: 70px;
+                    transition: all 0.2s ease-in;
+                    &:hover {
+                        cursor: progress;
+                        transform: scale(1.4);
+                    }
+                    &:first-child, &:last-child {
+                        color: white;
+                    }
+                    &.maroon {background-color: maroon; }
+                    &.red {background-color: red; }
+                    &.orange {background-color: orange; }
+                    &.yellow {background-color: yellow; }
+                    &.olive {background-color: olive; }
+                    &.purple {background-color: purple; }
+                    &.fuchsia {background-color: fuchsia; }
+                    &.white {background-color: white; }
+                    &.lime {background-color: lime; }
+                    &.green {background-color: green; }
+                    &.navy {background-color: navy; }
+                    &.blue {background-color: blue; }
+                    &.aqua {background-color: aqua; }
+                    &.teal {background-color: teal; }
+                    &.black {background-color: black; }
+                    &.silver {background-color: silver; }
+                    &.gray {background-color: gray; }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="btn-home" href="index.html">
+        <svg class="SVGBGI" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="accent" d="M12 20V4l-8 8 8 8z"></path><path class="outline" d="m2.29,12.71l8,8c.39.39,1.02.39,1.41,0s.39-1.02,0-1.41l-6.29-6.29h15.59c.55,0,1-.45,1-1s-.45-1-1-1H5.41l6.29-6.29c.39-.39.39-1.02,0-1.41-.2-.2-.45-.29-.71-.29s-.51.1-.71.29L2.29,11.29c-.39.39-.39,1.02,0,1.41Z"></path><path class="solid" d="m1.58 13.42 8 8a2 2 0 0 0 2.83-2.83L7.82 14h13.17c1.1 0 2-.9 2-2s-.9-2-2-2H7.83l4.59-4.59a2 2 0 0 0-1.41-3.42 2 2 0 0 0-1.41.59l-8.02 8a2.01 2 0 0 0 0 2.83Z"></path></svg>
+    </a>
+    <main>
+        <header>
+            <h1>11-Colors</h1>
+            <h2>CSS Color Properties</h2>
+        </header>
+        <section>
+            <h3>Name colors</h3>
+            <div class="colors">
+            <div>
+                <div class="maroon">maroon</div>
+                <div class="red">red</div>
+                <div class="orange">orange</div>
+                <div class="yellow">yellow</div>
+                <div class="olive">olive</div>
+            </div>
+            <div>
+                <div class="purple">purple</div>
+                <div class="fuchsia">fuchsia</div>
+                <div class="white">white</div>
+                <div class="lime">lime</div>
+                <div class="green">green</div>
+            </div>
+            <div>
+                <div class="navy">navy</div>
+                <div class="blue">blue</div>
+                <div class="aqua">aqua</div>
+                <div class="teal">teal</div>
+            </div>
+            <div>
+                <div class="black">black</div>
+                <div class="silver">silver</div>
+                <div class="gray">gray</div>
+            </div>
+        </div>
+        <h3>rgb decimal</h3>
+        <div class="colors">
+            <div>
+                <div class="maroon">rgb(128,0,0)</div>
+                <div class="red">rgb(255,0,0)</div>
+                <div class="orange">rgb(255,165,0)</div>
+                <div class="yellow">rgb(255,255,0)</div>
+                <div class="olive">rgb(128,128,0)</div>
+            </div>
+            <div>
+                <div class="purple">rgb(128,0,128)</div>
+                <div class="fuchsia">rgb(255,0,255)</div>
+                <div class="white">rgb(255,255,255)</div>
+                <div class="lime">rgb(0,255,0)</div>
+                <div class="green">rgb(0,128,0)</div>
+            </div>
+            <div>
+                <div class="navy">rgb(0,0,128)</div>
+                <div class="blue">rgb(0,0,255)</div>
+                <div class="aqua">rgb(0,255,255)</div>
+                <div class="teal">rgb(0,128,128)</div>
+            </div>
+            <div>
+                <div class="black">rgb(0,0,0)</div>
+                <div class="silver">rgb(192,192,192)</div>
+                <div class="gray">rgb(128,128,128)</div>
+            </div>
+        </div>
+        <h3>Hexadecimal</h3>
+        <div class="colors">
+            <div>
+                <div class="maroon">#800000</div>
+                <div class="red">#FF0000</div>
+                <div class="orange">#FFA500</div>
+                <div class="yellow">#FFFF00</div>
+                <div class="olive">#808000</div>
+            </div>
+            <div>
+                <div class="purple">#800080</div>
+                <div class="fuchsia">#FF00FF</div>
+                <div class="white">#FFFFFF</div>
+                <div class="lime">#00FF00</div>
+                <div class="green">#008000</div>
+            </div>
+            <div>
+                <div class="navy">#000080</div>
+                <div class="blue">#0000FF</div>
+                <div class="aqua">#00FFFF</div>
+                <div class="teal">#008080</div>
+            </div>
+            <div>
+                <div class="black">#000000</div>
+                <div class="silver">#C0C0C0</div>
+                <div class="gray">#808080</div>
+            </div>
+        </div>
+        <h3>HSL (Hue, Saturation, Lighting)</h3>
+        <div>
+                <div class="maroon">maroon</div>
+                <div class="red">red</div>
+                <div class="orange">orange</div>
+                <div class="yellow">yellow</div>
+                <div class="olive">olive</div>
+            </div>
+            <div>
+                <div class="purple">purple</div>
+                <div class="fuchsia">fuchsia</div>
+                <div class="white">white</div>
+                <div class="lime">lime</div>
+                <div class="green">green</div>
+            </div>
+            <div>
+                <div class="navy">navy</div>
+                <div class="blue">blue</div>
+                <div class="aqua">aqua</div>
+                <div class="teal">teal</div>
+            </div>
+            <div>
+                <div class="black">black</div>
+                <div class="silver">silver</div>
+                <div class="gray">gray</div>
+            </div>
+        </div>
+        </section>
+    </main>
+</body>
+</html>

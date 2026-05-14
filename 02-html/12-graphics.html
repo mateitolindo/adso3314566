@@ -3,68 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>12-colors-alpha</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+    figure.chococrispi {
+        background: url(../src/imgs/chococrispi.jpg)no-repeat center/cover;
+        border: 4px solid #fff;
+        margin-block: 2rem;
+        height: 360px;
+        width: 380px;
+        div {
+            height: calc(300px/3);
+            &.box1 {
+                background-color: rgba(255, 255, 255, 0.5)
+            }
+            &.box2 {
+                background-color: #d6cfcf60;
+            }
+            &.box3 {
+                background-color: hsla(0,0%,50%, 0.5)
+            }
+        }
+    }
+
+    main {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header {
+        text-align: center;
+    }
+    </style>
 </head>
 <body>
-    <a href="../02-html/index.html"class="home-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 256 256">
-        <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
-        </svg>
+    <a class="btn-home" href="index.html">
+        <svg class="SVGBGI" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="accent" d="M12 20V4l-8 8 8 8z"></path><path class="outline" d="m2.29,12.71l8,8c.39.39,1.02.39,1.41,0s.39-1.02,0-1.41l-6.29-6.29h15.59c.55,0,1-.45,1-1s-.45-1-1-1H5.41l6.29-6.29c.39-.39.39-1.02,0-1.41-.2-.2-.45-.29-.71-.29s-.51.1-.71.29L2.29,11.29c-.39.39-.39,1.02,0,1.41Z"></path><path class="solid" d="m1.58 13.42 8 8a2 2 0 0 0 2.83-2.83L7.82 14h13.17c1.1 0 2-.9 2-2s-.9-2-2-2H7.83l4.59-4.59a2 2 0 0 0-1.41-3.42 2 2 0 0 0-1.41.59l-8.02 8a2.01 2 0 0 0 0 2.83Z"></path></svg>
     </a>
-     <link rel="stylesheet" href="../src/css/02-html.css">
+    <main>
+        <header>
+            <h1>12-Colors Alpha</h1>
+            <h2>CSS Alpha Color Properties</h2>
+        </header>
+        <section>
+            <h3>example trasparent colors</h3>
+            <figure class="chococrispi">
+                <div class="box1"></div>
+                <div class="box2"></div>
+                <div class="box3"></div>
+            </figure>
+        </section>
+    </main>
 </body>
-<style>
-    .graficos-box { 
-        background-color: #e0e0ce; 
-        color: black; 
-        padding: 20px; 
-        width: 400px; 
-        border-radius: 4px; 
-        font-family: sans-serif;
-    }
-    .graficos-box h2 { 
-        margin-top: 0; 
-        font-size: 1.2em; 
-        border-bottom: 2px solid black; 
-    }
-    .canvas-area { 
-        border: 1px solid #999; 
-        margin: 10px 0; 
-        background: white; 
-        display: block;
-    }
-    hr { 
-        border: 0; 
-        border-top: 2px solid black; 
-        margin: 20px 0; 
-    }
-</style>
-<div class="graficos-box">
-    <h2>Canvas</h2>
-    <canvas id="miCanvas" width="300" height="100" class="canvas-area"></canvas>
-    
-    <hr>
-    
-    <h2>SVG</h2>
-    <svg width="300" height="100">
-        <rect x="20" y="10" width="80" height="70" fill="#1e71be" />
-        <circle cx="150" cy="45" r="35" fill="#1fb122" />
-        <text x="210" y="85" font-size="14">SVG</text>
-    </svg>
-</div>
-
-<script>
-    const canvas = document.getElementById('miCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // Rectángulo Naranja
-    ctx.fillStyle = '#e69138';
-    ctx.fillRect(20, 20, 90, 45);
-
-    // Círculo Rojo
-    ctx.fillStyle = '#cc4125';
-    ctx.beginPath();
-    ctx.arc(160, 42, 28, 0, Math.PI * 2);
-    ctx.fill();
-</script>
 </html>

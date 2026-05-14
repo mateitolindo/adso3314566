@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14-background</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        .ejemplo {
+            height: 400px;
+            width: 400px;
+            margin: 10px 0;
+        }
+        .bg-color { background-color: #6B46C1; }
+        .bg-image { background-image: url('../src/imgs/Gemini_Generated_Image_5p5xvz5p5xvz5p5x.png'); }
+        .bg-repeat { 
+            background-image: url('../src/imgs/Gemini_Generated_Image_5p5xvz5p5xvz5p5x.png'); 
+            background-repeat: repeat; 
+            background-size: 100px;
+        }
+        .bg-position { 
+            background-image: url('../src/imgs/Gemini_Generated_Image_5p5xvz5p5xvz5p5x.png'); 
+            background-repeat: no-repeat; 
+            background-position: left; 
+        }
+        .bg-size { 
+            background-image: url('../src/imgs/Gemini_Generated_Image_5p5xvz5p5xvz5p5x.png'); 
+            background-repeat: no-repeat; 
+            background-size: 200px 200px; 
+            background-position: center; 
+        }
+        .bg-attachment { 
+            background-image: url('../src/imgs/Gemini_Generated_Image_5p5xvz5p5xvz5p5x.png '); 
+            background-attachment: fixed; 
+        }
+    </style>
+</head>
+<body>
+    <a class="btn-home" href="index.html">
+        <svg class="SVGBGI" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="accent" d="M12 20V4l-8 8 8 8z"></path><path class="outline" d="m2.29,12.71l8,8c.39.39,1.02.39,1.41,0s.39-1.02,0-1.41l-6.29-6.29h15.59c.55,0,1-.45,1-1s-.45-1-1-1H5.41l6.29-6.29c.39-.39.39-1.02,0-1.41-.2-.2-.45-.29-.71-.29s-.51.1-.71.29L2.29,11.29c-.39.39-.39,1.02,0,1.41Z"></path><path class="solid" d="m1.58 13.42 8 8a2 2 0 0 0 2.83-2.83L7.82 14h13.17c1.1 0 2-.9 2-2s-.9-2-2-2H7.83l4.59-4.59a2 2 0 0 0-1.41-3.42 2 2 0 0 0-1.41.59l-8.02 8a2.01 2 0 0 0 0 2.83Z"></path></svg>
+    </a>
+    <main>
+        <header>
+            <h1>14-Background</h1>
+            <h2>CSS Background Properties</h2>
+            <ul>
+                <li>background-color</li>
+                <li>background-image</li>
+                <li>background-repeat</li>
+                <li>background-position</li>
+                <li>background-size</li>
+                <li>background attachment</li>
+            </ul>
+        </header>
+        <section>
+            <div>
+                <li>background-color</li>
+                <div class="ejemplo bg-color"></div>
+                
+                <li>background-image</li>
+                <div class="ejemplo bg-image"></div>
+                
+                <li>background-repeat</li>
+                <div class="ejemplo bg-repeat"></div>
+                
+                <li>background-position</li>
+                <div class="ejemplo bg-position"></div>
+                
+                <li>background-size</li>
+                <div class="ejemplo bg-size"></div>
+                
+                <li>background attachment</li>
+                <div class="ejemplo bg-attachment"></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

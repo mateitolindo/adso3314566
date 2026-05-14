@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24 Reto: Layout - Con Bloques Repetidos y Barra Inferior</title>
+    <style>
+        /* Reseteo básico */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Fondo principal verde lima */
+        body {
+            background-color: #00ff22;
+            color: #333;
+        }
+
+        /* Header con el logotipo centrado */
+        header {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Nav (Flexbox) - ESTILO MODIFICADO PARA INCLUIR IMAGENES EN CADA LINK */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #004d00;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            min-width: 100px;
+            gap: 8px;
+        }
+
+        nav a:hover {
+            background-color: #006600;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilo para los iconos dentro de los enlaces de navegación (menú superior e inferior) */
+        .nav-icon {
+            display: block;
+            width: 32px;
+            height: 32px;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAxNjAgMzIiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTF7ZmlsbDojZmZmO2ZvbnQtZmFtaWx5OkFyaWFsO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtd2VpZ2h0OmJvbGQ7fQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjZmZmZmZmIiByeD0iNiIgcnk9IjYiLz4KICA8cG9seWdvbiBwb2ludHM9IjE2LDggMTAsMTQgMTAsMjYgMTMsMjYgMTMsMTkgMTksMTkgMTksMjYgMjIsMjYgMjIsMTQgMTYsOCIgZmlsbD0iIzAwNGQwMCIvPgogIDxyZWN0IHg9IjMyIiB5PSIwIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNmZmZmZmYiIHJ4PSI2IiByeT0iNiIvPgogIDxjaXJjbGUgY3g9IjQ4IiBjeT0iMTIiIHI9IjQiIGZpbGw9IiMwMDRkMDAiLz4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjI0IiByPSI2IiBmaWxsPSIjMDA0ZDAwIi8+CiAgPHJlY3QgeD0iNjQiIHk9IjAiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0iI2ZmZmZmZiIgcng9IjYiIHJ5PSI2Ii8+CiAgPHJlY3QgeD0iNzAiIHk9IjEwIiB3aWR0aD0iMjAiIGhlaWdodD0iMTIiIGZpbGw9IiMwMDRkMDAiLz4KICA8cmVjdCB4PSI5NiIgeT0iMCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjZmZmZmZmIiByeD0iNiIgcnk9IjYiLz4KICA8Y2lyY2xlIGN4PSIxMTIiIGN5PSIxNiIgcj0iOCIgZmlsbD0iIzAwNGQwMCIvPgogIDxjaXJjbGUgY3g9IjExMiIgY3k9IjE2IiByPSIzIiBmaWxsPSIjZmZmIi8+CiAgPHJlY3QgeD0iMTI4IiB5PSIwIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiNmZmZmZmYiIHJ4PSI2IiByeT0iNiIvPgogIDxyZWN0IHg9IjEzNCIgeT0iOCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjYiIGZpbGw9IiMwMDRkMDAiLz4KICA8cmVjdCB4PSIxMzQiIHk9IjE4IiB3aWR0aD0iMjAiIGhlaWdodD0iNiIgZmlsbD0iIzAwNGQwMCIvPgo8L3N2Zz4=');
+            background-repeat: no-repeat;
+            background-size: 160px 32px;
+            background-color: transparent;
+        }
+
+        /* Posiciones de cada icono dentro del sprite - ajustadas para que se vean iconos representativos */
+        .icon-inicio {
+            background-position: 0px 0px;
+        }
+        .icon-nosotros {
+            background-position: -32px 0px;
+        }
+        .icon-portafolio {
+            background-position: -64px 0px;
+        }
+        .icon-servicios {
+            background-position: -96px 0px;
+        }
+        .icon-contacto {
+            background-position: -128px 0px;
+        }
+
+        /* Galería de 3 cajas horizontales (Flexbox) */
+        .gallery-section {
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .gallery-box {
+            background-color: #ffffff;
+            border: 2px solid #004d00;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 280px;
+        }
+
+        .gallery-box h3 {
+            margin-bottom: 20px;
+            color: #004d00;
+            font-size: 1.2rem;
+        }
+
+        /* Clases base para Sprites usando background */
+        .sprite {
+            background-repeat: no-repeat;
+            width: 250px; 
+            height: 200px;
+            background-color: #fff;
+            border-radius: 8px;
+            background-size: cover;
+        }
+        
+        /* Ajusta estas coordenadas según tu spriteweb.png real (se mantienen originales) */
+        .sprite-01 {
+            background-image: url('../src/imgs/spriteweb.png');
+            background-position: 0px 0px;
+            background-size: auto;
+        }
+        .sprite-02 {
+            background-image: url('../src/imgs/spriteweb.png');
+            background-position: -300px 0px;
+            background-size: auto;
+        }
+        .sprite-03 {
+            background-image: url('../src/imgs/spriteweb.png');
+            background-position: -600px 0px;
+            background-size: auto;
+        }
+
+        /* Contenedor Principal Blanco (Flexbox) - versión reutilizable */
+        .main-container {
+            background-color: #ffffff;
+            max-width: 1000px;
+            margin: 0 auto 30px auto;
+            border-radius: 12px;
+            border: 2px solid #004d00;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            gap: 30px;
+        }
+
+        /* Icono Izquierda (Círculo) */
+        .icon-col {
+            flex: 0 0 auto;
+        }
+        
+        .icon-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #004d00;
+            background-repeat: no-repeat;
+            background-image: url('../src/imgs/spriteweb.png'); 
+            background-position: -350px -400px; 
+            background-color: #fff;
+            background-size: auto;
+        }
+
+        /* Texto Centro */
+        .text-col {
+            flex: 1;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .text-col h2 {
+            color: #004d00;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .text-col p {
+            line-height: 1.6;
+            color: #444;
+            font-size: 1.05rem;
+        }
+
+        /* Producto Derecha (Sprite en Div) */
+        .product-col {
+            flex: 0 0 auto;
+        }
+        
+        .product-image {
+            width: 250px;
+            height: 250px;
+            border: 2px solid #004d00;
+            border-radius: 12px;
+            background-repeat: no-repeat;
+            background-image: url('../src/imgs/spriteweb.png'); 
+            background-position: -580px -400px;
+            background-color: #fff;
+            background-size: auto;
+        }
+
+        /* NUEVA SECCIÓN: Barra de navegación inferior (estilo minimalista) CON IMAGENES EN CADA ENLACE */
+        .bottom-nav-section {
+            max-width: 1000px;
+            margin: 20px auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .bottom-nav {
+            background-color: #ffffff;
+            border: 2px solid #004d00;
+            border-radius: 12px;
+            padding: 20px 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .bottom-nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bottom-nav-links li {
+            display: inline-block;
+        }
+
+        .bottom-nav-links a {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #004d00;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            background-color: #f0f9f0;
+            gap: 8px;
+            min-width: 90px;
+        }
+
+        .bottom-nav-links a:hover {
+            color: #008000;
+            background-color: #e0ffe0;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Ajuste responsive para la barra inferior */
+        @media (max-width: 768px) {
+            nav {
+                gap: 15px;
+            }
+            nav a {
+                min-width: 75px;
+                padding: 8px 12px;
+            }
+            .bottom-nav-links a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+                min-width: 70px;
+            }
+            .nav-icon {
+                width: 28px;
+                height: 28px;
+                background-size: 140px 28px;
+            }
+            .icon-inicio { background-position: 0px 0px; }
+            .icon-nosotros { background-position: -28px 0px; }
+            .icon-portafolio { background-position: -56px 0px; }
+            .icon-servicios { background-position: -84px 0px; }
+            .icon-contacto { background-position: -112px 0px; }
+            .main-container {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 30px;
+                padding: 25px;
+            }
+            .gallery {
+                justify-content: center;
+            }
+            .bottom-nav-links {
+                gap: 15px;
+            }
+            .bottom-nav-links a {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Ajuste adicional para pantallas muy pequeñas */
+        @media (max-width: 550px) {
+            .bottom-nav-links {
+                gap: 10px;
+            }
+            .bottom-nav-links a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+            .nav-icon {
+                width: 24px;
+                height: 24px;
+                background-size: 120px 24px;
+            }
+            .icon-inicio { background-position: 0px 0px; }
+            .icon-nosotros { background-position: -24px 0px; }
+            .icon-portafolio { background-position: -48px 0px; }
+            .icon-servicios { background-position: -72px 0px; }
+            .icon-contacto { background-position: -96px 0px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header con logotipo -->
+    <header>
+        <div class="logo">LOGO</div>
+    </header>
+
+    <!-- Navegación superior con los textos exactos de la foto + iconos imagen desde sprite -->
+    <nav>
+        <a href="#">
+            <span class="nav-icon icon-inicio"></span>
+            <span>INICIO</span>
+        </a>
+        <a href="#">
+            <span class="nav-icon icon-nosotros"></span>
+            <span>NOSOTROS</span>
+        </a>
+        <a href="#">
+            <span class="nav-icon icon-portafolio"></span>
+            <span>PORTAFOLIO</span>
+        </a>
+        <a href="#">
+            <span class="nav-icon icon-servicios"></span>
+            <span>SERVICIOS</span>
+        </a>
+        <a href="#">
+            <span class="nav-icon icon-contacto"></span>
+            <span>CONTACTO</span>
+        </a>
+    </nav>
+
+    <!-- Galería de sprites -->
+    <section class="gallery-section">
+        <div class="gallery">
+            <div class="gallery-box">
+                <h3>Sprite 01</h3>
+                <div class="sprite sprite-01"></div>
+            </div>
+            <div class="gallery-box">
+                <h3>Sprite 02</h3>
+                <div class="sprite sprite-02"></div>
+            </div>
+            <div class="gallery-box">
+                <h3>Sprite 03</h3>
+                <div class="sprite sprite-03"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIMER BLOQUE: Contenedor Principal Blanco (original) -->
+    <div class="main-container">
+        <div class="icon-col">
+            <div class="icon-circle"></div>
+        </div>
+        <div class="text-col">
+            <h2>Lorem Ipsum</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minim blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque.
+            </p>
+        </div>
+        <div class="product-col">
+            <div class="product-image"></div>
+        </div>
+    </div>
+
+    <!-- SEGUNDO BLOQUE: Copia exacta -->
+    <div class="main-container">
+        <div class="icon-col">
+            <div class="icon-circle"></div>
+        </div>
+        <div class="text-col">
+            <h2>Lorem Ipsum</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minim blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque.
+            </p>
+        </div>
+        <div class="product-col">
+            <div class="product-image"></div>
+        </div>
+    </div>
+
+    <!-- TERCER BLOQUE: Otra copia exacta -->
+    <div class="main-container">
+        <div class="icon-col">
+            <div class="icon-circle"></div>
+        </div>
+        <div class="text-col">
+            <h2>Lorem Ipsum</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minim blanditiis porro corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos cumque.
+            </p>
+        </div>
+        <div class="product-col">
+            <div class="product-image"></div>
+        </div>
+    </div>
+
+    <!-- NUEVA SECCIÓN: Barra inferior de navegación (estilo de la imagen) CON IMAGENES EN CADA ENLACE -->
+    <section class="bottom-nav-section">
+        <div class="bottom-nav">
+            <ul class="bottom-nav-links">
+                <li>
+                    <a href="#">
+                        <span class="nav-icon icon-inicio"></span>
+                        <span>INICIO</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="nav-icon icon-nosotros"></span>
+                        <span>NOSOTROS</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="nav-icon icon-portafolio"></span>
+                        <span>PORTAFOLIO</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="nav-icon icon-servicios"></span>
+                        <span>SERVICIOS</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="nav-icon icon-contacto"></span>
+                        <span>CONTACTO</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Nota adicional: Se ha incorporado en los menús superior e inferior las imágenes provenientes del sprite (spriteweb.png) 
+    con posiciones definidas para cada ícono: casa, usuarios, portafolio, servicios y contacto. La estructura mantiene el 
+    mismo fondo verde lima, bloques repetidos con texto Lorem Ipsum y galería de sprites. El diseño es totalmente responsivo 
+    y los íconos aparecen centrados sobre cada texto del menú. -->
+</body>
+</html>

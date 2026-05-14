@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-percentage-units</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        main {
+            width: 100%;
+            section.Percentage {
+                border: 4px solid red;
+                margin: 0 auto;
+                width: 80%;
+                div.parent {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    div {
+                        display: flex;
+                        justify-content: center;
+                        font-size: 2rem;
+                        align-items: center;
+                        height: 50dvh;
+                        &.child1 {
+                            background-color: rgb(43, 70, 226);
+                            width: 70%;
+                        }
+                        &.child2 {
+                            background-color: aquamarine;
+                            width: 30%;
+                        }
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="btn-home" href="index.html">
+        <svg class="SVGBGI" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="accent" d="M12 20V4l-8 8 8 8z"></path><path class="outline" d="m2.29,12.71l8,8c.39.39,1.02.39,1.41,0s.39-1.02,0-1.41l-6.29-6.29h15.59c.55,0,1-.45,1-1s-.45-1-1-1H5.41l6.29-6.29c.39-.39.39-1.02,0-1.41-.2-.2-.45-.29-.71-.29s-.51.1-.71.29L2.29,11.29c-.39.39-.39,1.02,0,1.41Z"></path><path class="solid" d="m1.58 13.42 8 8a2 2 0 0 0 2.83-2.83L7.82 14h13.17c1.1 0 2-.9 2-2s-.9-2-2-2H7.83l4.59-4.59a2 2 0 0 0-1.41-3.42 2 2 0 0 0-1.41.59l-8.02 8a2.01 2 0 0 0 0 2.83Z"></path></svg>
+    </a>
+    <main>
+        <header>
+            <h1>10-Percentage Units</h1>
+            <h2>CSS Percentage Units</h2>
+        </header>
+        <section class="Percentage">
+            <div class="parent">
+                <div class="child1">70%</div>
+                <div class="child2">30%</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

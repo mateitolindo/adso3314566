@@ -3,8 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>02-css-file</title>
+    <title>12-colors-alpha</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+    figure.chococrispi {
+        background: url(../src/imgs/spiderman.gif)no-repeat center/cover;
+        border: 4px solid #fff;
+        margin-block: 2rem;
+        height: 360px;
+        width: 380px;
+        div {
+            height: calc(300px/3);
+            &.box1 {
+                background-color: rgba(255, 255, 255, 0.5)
+            }
+            &.box2 {
+                background-color: #d6cfcf60;
+            }
+            &.box3 {
+                background-color: hsla(0,0%,50%, 0.5)
+            }
+        }
+    }
+    </style>
 </head>
 <body>
     <a class="btn-home" href="index.html">
@@ -12,13 +33,16 @@
     </a>
     <main>
         <header>
-            <h1>02-CSS File</h1>
-            <h2>External CSS File</h2>
+            <h1>12-Colors Alpha</h1>
+            <h2>CSS Alpha Color Properties</h2>
         </header>
         <section>
-            <div>
-                
-            </div>
+            <h3>example trasparent colors</h3>
+            <figure class="chococrispi">
+                <div class="box1"></div>
+                <div class="box2"></div>
+                <div class="box3"></div>
+            </figure>
         </section>
     </main>
 </body>

@@ -111,7 +111,24 @@ menu a:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-
+a.btn-home {
+            fill: white;
+            border: 2px solid white;
+            border-radius: 50%;
+            position: fixed;
+            display: flex;
+            width: 32px;
+            height: 32px;
+            opacity: .6;
+            padding: 0.4rem;
+            inset: 0.4rem;
+            transition: all 0.46s ease-in;
+            z-index: 10;
+        }
+        a.btn-home:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
 menu a span {
     background-color: #7c3aed; /* Morado más claro para el número */
     color: white;

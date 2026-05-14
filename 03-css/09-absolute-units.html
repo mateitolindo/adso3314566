@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>02-css-file</title>
+    <title>09-absolute-units</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        li.abs1 {font-size: 0.5in;}
+        li.abs2 {font-size: 1cm;}
+        li.abs3 {font-size: 10mm;}
+        li.abs4 {font-size: 10pt;}
+        li.abs5 {font-size: 2pc;}
+    </style>
 </head>
 <body>
     <a class="btn-home" href="index.html">
@@ -12,13 +19,24 @@
     </a>
     <main>
         <header>
-            <h1>02-CSS File</h1>
-            <h2>External CSS File</h2>
+            <h1>09-Absolute Units</h1>
+            <h2>CSS Absolute Units (px, pt, cm, mm, in)</h2>
+            <ul>
+                <li>inch (in)</li>
+                <li>Centimeter (cm)</li>
+                <li>Milimeter (mm)</li>
+                <li>point (pt)</li>
+                <li>pica (pc)</li>
+            </ul>
         </header>
         <section>
-            <div>
-                
-            </div>
+            <ul>
+                <li class="abs1">Inch: 0.5 in</li>
+                <li class="abs2">centimer: 1cm</li>
+                <li class="abs3">Milimeter: 10mm</li>
+                <li class="abs4">point : 10pt</li>
+                <li class="abs5">pica: 2pc</li>
+            </ul>
         </section>
     </main>
 </body>

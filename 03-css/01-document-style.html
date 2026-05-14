@@ -1,30 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01 - Document Style</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
     <style>
-        /* Estilos para el botón home en la esquina superior izquierda */
-        .btn-home {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            color: inherit; /* Hereda el color del texto base */
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s ease;
-        }
-
-        .btn-home:hover {
-            transform: scale(1.1);
-        }
-
-        /* Estilos de la clase ADSO */
         div.adso {
             background: linear-gradient(#bb4dff, rgb(120, 17, 132) 50%);
             border-radius: 0.4rem;
@@ -35,34 +16,26 @@
             font-family: "Roboto Slab", serif;
             text-align: center;
         }
-
-        /* Ajuste de margen para el contenido */
-        main {
-            padding-top: 60px;
-        }
     </style>
 </head>
 <body>
-
-    <!-- Botón Home con el icono de la casita -->
-    <a class="btn-home" href="index.html" title="Ir al inicio">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
-            <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
-        </svg>
-    </a>
-
     <main>
-        <header>
-            <h1>01 - Document Style</h1>
-            <h2>This way we can include CSS within the style tag, it is very useful when you only have an html document.</h2>
-        </header>
-        
-        <section>
-            <div class="adso">
-                ADSO 3314566
-            </div>
-        </section>
-    </main>
-
+        <a class="btn-home" href="index.html">
+        <svg class="SVGBGI" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="accent" d="M12 20V4l-8 8 8 8z"></path><path class="outline" d="m2.29,12.71l8,8c.39.39,1.02.39,1.41,0s.39-1.02,0-1.41l-6.29-6.29h15.59c.55,0,1-.45,1-1s-.45-1-1-1H5.41l6.29-6.29c.39-.39.39-1.02,0-1.41-.2-.2-.45-.29-.71-.29s-.51.1-.71.29L2.29,11.29c-.39.39-.39,1.02,0,1.41Z"></path><path class="solid" d="m1.58 13.42 8 8a2 2 0 0 0 2.83-2.83L7.82 14h13.17c1.1 0 2-.9 2-2s-.9-2-2-2H7.83l4.59-4.59a2 2 0 0 0-1.41-3.42 2 2 0 0 0-1.41.59l-8.02 8a2.01 2.01 0 0 0 0 2.83Z"></path></svg>
+    </a>
+        </div>
+        <br>
+        <br>
+        <main>
+            <header>
+                <h1>01 - Document Style</h1>
+                <h2>This way we can include CSS within the style tag, it is very useful when you only have an html document.</h2>
+            </header>
+            <section>
+                <div class="adso">
+                    ADSO 3314566
+                </div>
+            </section>
+        </main>
 </body>
 </html>

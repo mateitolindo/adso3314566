@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>02-css-file</title>
+    <title>04-basic-selectors</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        section div.rotate {
+            background: #d42727;
+            color: #000000;
+            margin: 4rem auto;
+            padding: 0.4rem;
+            text-align: center;
+            font-size: 4rem;
+            width: 200px;
+            transform: rotate(-25deg); /*section tipo combinado*/
+        }
+    </style>
 </head>
 <body>
     <a class="btn-home" href="index.html">
@@ -12,12 +24,19 @@
     </a>
     <main>
         <header>
-            <h1>02-CSS File</h1>
-            <h2>External CSS File</h2>
+            <h1>04-Basic Selectors</h1>
+            <ul>
+                <li>Universal (*)</li>
+                <li>Type / Tag (p)</li>
+                <li>Descending (div p)</li>
+                <li>Class (.important)</li>
+                <li>ID (#cod389)</li>
+                <li>Merge (div#user3 p.title)</li>
+            </ul>
         </header>
         <section>
-            <div>
-                
+            <div class="rotate">
+                    SENA
             </div>
         </section>
     </main>
