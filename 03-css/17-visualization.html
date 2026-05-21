@@ -23,7 +23,81 @@
         </header>
         <section>
             <div>
-                
+                <h3 style="margin: 0 0 12px 0;">display</h3>
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <div>
+                        <h4 style="margin: 0 0 8px 0;">inline</h4>
+                        <span style="display: inline; padding: 6px 10px; border-radius: 12px; background: rgba(255,255,255,0.9); color: #5D0065;">Item 1</span>
+                        <span style="display: inline; padding: 6px 10px; border-radius: 12px; background: rgba(255,255,255,0.9); color: #5D0065;">Item 2</span>
+                        <span style="display: inline; padding: 6px 10px; border-radius: 12px; background: rgba(255,255,255,0.9); color: #5D0065;">Item 3</span>
+                    </div>
+
+                    <div>
+                        <h4 style="margin: 0 0 8px 0;">block</h4>
+                        <span style="display: block; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.9); color: #5D0065; margin-bottom: 8px;">Block 1</span>
+                        <span style="display: block; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.9); color: #5D0065; margin-bottom: 8px;">Block 2</span>
+                        <span style="display: block; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.9); color: #5D0065;">Block 3</span>
+                    </div>
+
+                    <div>
+                        <h4 style="margin: 0 0 8px 0;">none</h4>
+                        <span style="display: none; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.9); color: #5D0065;">No debería verse</span>
+                        <span style="display: inline-block; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.2); border: 1px dashed rgba(255,255,255,0.5);">El elemento anterior existe, pero no se muestra</span>
+                    </div>
+
+                    <div>
+                        <h4 style="margin: 0 0 8px 0;">flex</h4>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 140px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Flex 1</div>
+                            <div style="flex: 1; min-width: 140px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Flex 2</div>
+                            <div style="flex: 1; min-width: 140px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Flex 3</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 style="margin: 0 0 8px 0;">grid</h4>
+                        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+                            <div style="padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Grid 1</div>
+                            <div style="padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Grid 2</div>
+                            <div style="padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Grid 3</div>
+                            <div style="padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Grid 4</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 18px 0 12px 0;">visibility</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <div style="padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Visible</div>
+                    <div style="visibility: hidden; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Hidden (ocupa espacio)</div>
+                    <div style="padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065;">Visible</div>
+                </div>
+
+                <h3 style="margin: 18px 0 12px 0;">overflow</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+                    <div style="height: 90px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065; overflow: visible;">
+                        <strong>visible</strong>
+                        <div style="width: 360px; margin-top: 8px;">Texto MUY largo MUY largo MUY largo MUY largo MUY largo</div>
+                    </div>
+                    <div style="height: 90px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065; overflow: hidden;">
+                        <strong>hidden</strong>
+                        <div style="width: 360px; margin-top: 8px;">Texto MUY largo MUY largo MUY largo MUY largo MUY largo</div>
+                    </div>
+                    <div style="height: 90px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065; overflow: scroll;">
+                        <strong>scroll</strong>
+                        <div style="width: 360px; margin-top: 8px;">Texto MUY largo MUY largo MUY largo MUY largo MUY largo</div>
+                    </div>
+                    <div style="height: 90px; padding: 12px; border-radius: 14px; background: rgba(255,255,255,0.9); color: #5D0065; overflow: auto;">
+                        <strong>auto</strong>
+                        <div style="width: 360px; margin-top: 8px;">Texto MUY largo MUY largo MUY largo MUY largo MUY largo</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 18px 0 12px 0;">z-index</h3>
+                <div style="position: relative; height: 160px; border-radius: 16px; border: 2px dashed rgba(255,255,255,0.35);">
+                    <div style="position: absolute; left: 20px; top: 50px; width: 160px; height: 90px; border-radius: 16px; background: rgba(255,255,255,0.85); color: #5D0065; display: flex; align-items: center; justify-content: center; z-index: 1;">z-index: 1</div>
+                    <div style="position: absolute; left: 70px; top: 30px; width: 160px; height: 90px; border-radius: 16px; background: rgba(233,213,255,0.85); color: #5D0065; display: flex; align-items: center; justify-content: center; z-index: 2;">z-index: 2</div>
+                    <div style="position: absolute; left: 120px; top: 10px; width: 160px; height: 90px; border-radius: 16px; background: rgba(255,255,255,0.7); color: #5D0065; display: flex; align-items: center; justify-content: center; z-index: 3;">z-index: 3</div>
+                </div>
             </div>
         </section>
     </main>

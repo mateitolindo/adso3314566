@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20-pseudoclasses</title>
     <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        .ps-demo { display: flex; flex-direction: column; gap: 14px; width: min(760px, 100%); }
+        .ps-card { padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.9); color: #5D0065; }
+        .ps-link:link { color: #2563eb; }
+        .ps-link:visited { color: #7c3aed; }
+        .ps-link:hover { color: #dc2626; text-decoration: underline; }
+        .ps-link:active { color: #111827; }
+        .ps-input { width: 100%; max-width: 360px; padding: 12px; border-radius: 14px; border: 2px solid rgba(93,0,101,0.25); outline: none; }
+        .ps-input:focus { border-color: #2563eb; box-shadow: 0 0 0 4px rgba(37,99,235,0.25); }
+        .ps-btn { padding: 12px 14px; border-radius: 14px; border: 0; background: #6B46C1; color: #fff; cursor: pointer; }
+        .ps-btn:hover { filter: brightness(1.06); }
+        .ps-btn:active { transform: translateY(1px); }
+        .ps-list { margin: 0; padding-left: 18px; }
+        .ps-list li:first-child { font-weight: 900; }
+    </style>
 </head>
 <body>
     <a class="btn-home" href="index.html">
@@ -17,7 +32,31 @@
         </header>
         <section>
             <div>
-                
+                <div class="ps-demo">
+                    <div class="ps-card">
+                        <h3 style="margin: 0 0 10px 0;">:link / :visited / :hover / :active</h3>
+                        <a class="ps-link" href="https://example.com" target="_blank" rel="noreferrer">Pasa el mouse y haz click en este link</a>
+                    </div>
+
+                    <div class="ps-card">
+                        <h3 style="margin: 0 0 10px 0;">:focus</h3>
+                        <input class="ps-input" type="text" placeholder="Haz click aquí (input:focus)" />
+                    </div>
+
+                    <div class="ps-card">
+                        <h3 style="margin: 0 0 10px 0;">:hover / :active</h3>
+                        <button class="ps-btn" type="button">Pásame el mouse y clic</button>
+                    </div>
+
+                    <div class="ps-card">
+                        <h3 style="margin: 0 0 10px 0;">:first-child</h3>
+                        <ul class="ps-list">
+                            <li>Primer item (bold)</li>
+                            <li>Segundo item</li>
+                            <li>Tercer item</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
