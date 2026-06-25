@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27-box-shadow</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        div.box{
+            border-radius: 20%;
+            height: 200px;
+            width: 200px;
+            background-color: rgb(255, 255, 255);
+            margin: 0 auto;
+        }
+        div.box1{
+            box-shadow: 0 0 12px #7829f0;
+        }
+        div.box2{
+            box-shadow: -10px -10px 24px 0 #57ff79;
+        }
+        div.box3{
+            box-shadow: 0 0 20px #fffa64
+        }
+        div.box4{
+            box-shadow: 4px 4px 0 #cc0,
+                        8px 8px 0 #00c,
+                        12px 12px 0 #c00
+
+        }
+        div.images img{
+        width: 300px;
+        }
+        div.images{
+            display: flex;
+            justify-content: center;
+            margin-block: 2rem;
+            gap: 1rem;
+        }
+        div.images img:first-child{
+            box-shadow: 0 0 12px #fff;
+        }
+        div.images img:last-child{
+            filter: drop-shadow(0 0 12px #fff);
+        }
+
+    </style>
+</head>
+<body>
+    <a class="btn-home" href="index.html">
+        <svg class="SVGBGI" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="accent" d="M12 20V4l-8 8 8 8z"></path><path class="outline" d="m2.29,12.71l8,8c.39.39,1.02.39,1.41,0s.39-1.02,0-1.41l-6.29-6.29h15.59c.55,0,1-.45,1-1s-.45-1-1-1H5.41l6.29-6.29c.39-.39.39-1.02,0-1.41-.2-.2-.45-.29-.71-.29s-.51.1-.71.29L2.29,11.29c-.39.39-.39,1.02,0,1.41Z"></path><path class="solid" d="m1.58 13.42 8 8a2 2 0 0 0 2.83-2.83L7.82 14h13.17c1.1 0 2-.9 2-2s-.9-2-2-2H7.83l4.59-4.59a2 2 0 0 0-1.41-3.42 2 2 0 0 0-1.41.59l-8.02 8a2.01 2.01 0 0 0 0 2.83Z"></path></svg>
+    </a>
+    <main>
+        <header>
+            <h1>27-Box Shadow</h1>
+            <h2>Description</h2>
+        </header>
+        <section>
+            <div class="recuadro">
+        <h3></h3>
+        <br>
+        <div class="box box1"></div>
+        <br>
+        <h3></h3>
+        <br>
+        <div class="box box2"></div>
+        <br>
+        <h3></h3>
+        <br>
+        <div class="box box3"></div>
+        <br>
+        <h3></h3>
+        <br>
+        <div class="box box4"></div>
+        <br>
+        <h3></h3>
+        <br>
+        <div class="images">
+            <img src="../src/imgs/antifloo.webp" width="180">
+            <img src="../src/imgs/mario.jpg" width="180">
+        </div>
+        </section>
+    </main>
+</body>
+</html>

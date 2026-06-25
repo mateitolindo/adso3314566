@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29-New Backgrounds</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    <a class="btn-home" href="index.html">
+        <svg class="SVGBGI" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="accent" d="M12 20V4l-8 8 8 8z"></path><path class="outline" d="m2.29,12.71l8,8c.39.39,1.02.39,1.41,0s.39-1.02,0-1.41l-6.29-6.29h15.59c.55,0,1-.45,1-1s-.45-1-1-1H5.41l6.29-6.29c.39-.39.39-1.02,0-1.41-.2-.2-.45-.29-.71-.29s-.51.1-.71.29L2.29,11.29c-.39.39-.39,1.02,0,1.41Z"></path><path class="solid" d="m1.58 13.42 8 8a2 2 0 0 0 2.83-2.83L7.82 14h13.17c1.1 0 2-.9 2-2s-.9-2-2-2H7.83l4.59-4.59a2 2 0 0 0-1.41-3.42 2 2 0 0 0-1.41.59l-8.02 8a2.01 2.01 0 0 0 0 2.83Z"></path></svg>
+    </a>
+      <style>
+        div.multiples {
+            background: url(../src/imgs/weski.jpg),
+                        url(../src/imgs/weski.jpg),
+                        url(../src/imgs/weski.jpg);
+            height: 453px;            
+
+        }
+        section div {
+            border: 4px solid #000d;
+            border-radius: 10px;
+            margin: 1rem auto;
+            height: 200px;
+            width: 320px;
+        }
+        
+        div.gradient1 {
+            background: linear-gradient(to top, #100441, #7575ea);
+        }
+        div.gradient2 {
+            background: linear-gradient(45deg, #87ea87, #033109);
+        }
+        div.gradient3 {
+            background: linear-gradient(to bottom,
+                    #ffcd00 50%,
+                    #003087 50%,
+                    #003087 75%,
+                    #c8102e 75%);
+        }
+        div.gradient4 {
+            background: linear-gradient(to right, #fff 50%, #333 50%);
+            background-size: 37px;
+        }
+        div.gradient5 {
+            background: radial-gradient(circle, #caa1e7, #210337);
+
+        }
+        div.gradient6 {
+            background: radial-gradient(circle, #fff 20%,
+            #333 20%,
+            #333 40%,
+            #fff 40%,
+            #fff 60%,
+            #333 60%,
+            #333 80%,
+            #fff 80%);
+        }
+        h4.clip1 {
+            font-size: 8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #82009f 0%, #f7345e 100% );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h4.clip2 {
+            font-size: 8rem;
+            font-weight: bold; 
+            background: url(../src/imgs/bgfire.jpg) no-repeat center;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        div.mask {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(to top, red, yellow);
+            margin: 2rem auto;
+            mask-image: url(../src/imgs/mask.svg);
+            mask-size: 100% 100%;
+        }
+        .comic {
+            width: 320px;
+            height: 200px;
+            background: conic-gradient(rgb(104, 119, 203), rgb(48, 69, 192), rgb(104, 119, 203), rgb(104, 119, 203), rgb(48, 69, 192), rgb(104, 119, 203));
+            border-radius: 4%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <main class="document-page"> 
+        <a href="../03-css/index.html" class="home-button">
+    <span class="home-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </span>
+    <span class="home-text">Volver</span>
+  </a>
+        <header>
+            <h1>29 - New - Backgrounds</h1>
+            <h2>New Features (multiple, gradients, clip).</h2>
+        </header>
+        <section>
+            <h3>Bgs Multiple:</h3>
+            <div class="multiples"></div>
+            <h3>Bgs Gradients:</h3>
+            <h5>linear-gradient(to direction, color1, color2)</h5>
+            <div class="gradient1"></div>
+            <h5>linear-gradient(degrees, color1, color2)</h5>
+            <div class="gradient2"></div>
+            <h5>Colombia Flag</h5>
+            <div class="gradient3"></div>
+            <h5>Vertical Lines</h5>
+            <div class="gradient4"></div>
+            <h5>radical-gradient(shape, color1, color2)</h5>
+            <div class="gradient5"></div>
+            <h5>BullsEye</h5>
+            <div class="gradient6"></div>
+            <h5>conic-gradient(color1, color2)</h5>
+            <div class="comic"></div>
+            <h3>Bgs Clip:</h3>
+            <h4 class="clip1">ADSO</h4>
+            <h4 class="clip2">FIRE</h4>
+            <h3>Bg Mask</h3>
+            <div class="mask"></div>
+            
+        </section>
+    <main>
+     
+    
+    </main>
+</body>
+</html>
