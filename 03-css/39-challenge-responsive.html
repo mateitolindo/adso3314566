@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>God of War</title>
+<style>
+    
+  :root{
+    --container-width: 900px; /* <-- cambia este valor para ajustar el ancho del recuadro blanco */
+    --bg-dark: #1a1512;
+    --red: #8c1c13;
+    --gold: #c9a25a;
+    --text: #2b2b2b;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    /* Fondo unificado en una sola regla, sin duplicados ni typos en el nombre del archivo */
+    background-image: linear-gradient(180deg, rgba(13,11,10,0.75) 0%, rgba(26,21,18,0.85) 100%), url('../src/imgs/backgroundgow.jpg');
+    background-color: #0a0014;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 16px;
+  }
+
+  .resize-wrapper{
+    position: relative;
+    width: 100%;
+    max-width: var(--container-width);
+    transition: max-width .05s linear;
+    /* Habilita container queries: los hijos podrán reaccionar al ancho de ESTA caja */
+    container-type: inline-size;
+    container-name: gowbox;
+  }
+
+  .resize-handle{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 14px;
+    cursor: ew-resize;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .resize-handle::before{
+    content: "";
+    width: 4px;
+    height: 50px;
+    background: rgba(201,162,90,0.5);
+    border-radius: 3px;
+    transition: background .2s ease;
+  }
+
+  .resize-handle:hover::before,
+  .resize-handle.active::before{
+    background: var(--gold);
+  }
+
+  .resize-handle.left{ left: -14px; }
+  .resize-handle.right{ right: -14px; }
+
+  .width-indicator{
+    position: absolute;
+    top: -26px;
+    right: 0;
+    color: #ccc;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+
+  .resize-wrapper.resizing .width-indicator{ opacity: 1; }
+
+  .container{
+    width: 100%;
+    max-width: var(--container-width);
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+    transition: max-width .2s ease;
+  }
+
+  header{
+    padding: 40px 20px 20px;
+    text-align: center;
+    background: #fff;
+  }
+
+  header img{
+    max-width: 420px;
+    width: 90%;
+    height: auto;
+  }
+
+  .seasons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: #ddd;
+  }
+
+  .season-card{
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+  }
+
+  .season-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(60%) brightness(0.85);
+    transition: transform .45s ease, filter .45s ease;
+  }
+
+  .season-card:hover img{
+    transform: scale(1.12);
+    filter: grayscale(0%) brightness(1);
+  }
+
+  .season-card::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 0 var(--gold);
+    transition: box-shadow .35s ease;
+    pointer-events: none;
+  }
+
+  .season-card:hover::after{
+    box-shadow: inset 0 0 0 3px var(--gold);
+  }
+
+  .season-label{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 8px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: #fff;
+    font-size: 0.85rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+    transform: translateY(6px);
+    opacity: 0.8;
+    transition: transform .35s ease, opacity .35s ease;
+  }
+
+  .season-card:hover .season-label{
+    transform: translateY(0);
+    opacity: 1;
+    color: var(--gold);
+  }
+
+  .characters{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .char-card{
+    display: flex;
+    gap: 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .char-card img{
+    width: 220px;
+    min-width: 140px;
+    object-fit: cover;
+  }
+
+  .char-info{
+    padding: 16px 16px 16px 0;
+  }
+
+  .char-info h2{
+    color: var(--red);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .char-info p{
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  footer{
+    text-align: center;
+    padding: 16px;
+    font-size: 0.75rem;
+    color: #999;
+  }
+
+  /* --- Responsive basado en el ANCHO DEL RECUADRO (container queries) ---
+     Antes esto usaba @media, que solo mira el ancho de la ventana.
+     Con @container, reacciona en vivo al arrastrar los handles de resize. */
+  @container gowbox (max-width: 700px){
+    .seasons{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @container gowbox (max-width: 480px){
+    .char-card{ flex-direction: column; }
+    .char-card img{ width: 100%; height: 220px; }
+    .char-info{ padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="resize-wrapper" id="resizeWrapper">
+    <span class="width-indicator" id="widthIndicator">900px</span>
+    <div class="resize-handle left" id="handleLeft"></div>
+    <div class="resize-handle right" id="handleRight"></div>
+
+  <div class="container" id="container">
+    <header>
+      <img src="../src/imgs/gowlogo.png" alt="God of War">
+    </header>
+
+    <section class="seasons">
+      <div class="season-card">
+        <img src="../src/imgs/gow1.jpg" alt="God of War I">
+        <div class="season-label">GOD OF WAR (2005)</div>
+      </div>
+      <div class="season-card">
+        <img src="../src/imgs/gow2.jpg" alt="God of War II">
+        <div class="season-label">GOD OF WAR II</div>
+      </div>
+      <div class="season-card">
+        <img src="../src/imgs/gow3.jpg" alt="God of War III">
+        <div class="season-label">GOD OF WAR III</div>
+      </div>
+      <div class="season-card">
+        <img src="../src/imgs/gow4.webp" alt="God of War 2018">
+        <div class="season-label">GOD OF WAR (2018)</div>
+      </div>
+    </section>
+
+    <section class="characters">
+      <article class="char-card">
+        <img src="../src/imgs/kratos.jpg" alt="Kratos">
+        <div class="char-info">
+          <h2>Kratos</h2>
+          <p>
+            Antiguo Dios de la Guerra del Olimpo, ahora asentado en las tierras nórdicas.
+            Guerrero espartano de fuerza descomunal, marcado por un pasado sangriento que
+            intenta dejar atrás mientras guía a su hijo Atreus por los Nueve Reinos.
+          </p>
+        </div>
+      </article>
+
+      <article class="char-card">
+        <img src="../src/imgs/atreus.jpg" alt="Atreus">
+        <div class="char-info">
+          <h2>Atreus</h2>
+          <p>
+            Hijo de Kratos y Faye. Un joven curioso y hábil arquero que aprende a conocer
+            su verdadera herencia divina mientras acompaña a su padre en un viaje que
+            pondrá a prueba el vínculo entre ambos.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <footer>Fan page  de Mateo Grisales Osorio — God of War © Santa Monica Studio / Sony Interactive Entertainment</footer>
+  </div>
+  </div>
+
+  <script>
+    const wrapper = document.getElementById('resizeWrapper');
+    const handleLeft = document.getElementById('handleLeft');
+    const handleRight = document.getElementById('handleRight');
+    const indicator = document.getElementById('widthIndicator');
+    const root = document.documentElement;
+
+    const MIN_WIDTH = 480;
+    const MAX_WIDTH = 1400;
+
+    let dragging = null;
+    let startX = 0;
+    let startWidth = 0;
+
+    function currentWidth(){
+      return wrapper.getBoundingClientRect().width;
+    }
+
+    function setWidth(px){
+      const clamped = Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, px));
+      root.style.setProperty('--container-width', clamped + 'px');
+      indicator.textContent = Math.round(clamped) + 'px';
+    }
+
+    function startDrag(side, e){
+      dragging = side;
+      startX = e.touches ? e.touches[0].clientX : e.clientX;
+      startWidth = currentWidth();
+      wrapper.classList.add('resizing');
+      (side === 'left' ? handleLeft : handleRight).classList.add('active');
+      document.body.style.userSelect = 'none';
+    }
+
+    function onDrag(e){
+      if(!dragging) return;
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      const delta = x - startX;
+      // El contenedor está centrado, así que mover cualquier lado
+      // agranda/reduce el ancho en el doble del desplazamiento.
+      const newWidth = dragging === 'right'
+        ? startWidth + delta * 2
+        : startWidth - delta * 2;
+      setWidth(newWidth);
+    }
+
+    function endDrag(){
+      dragging = null;
+      wrapper.classList.remove('resizing');
+      handleLeft.classList.remove('active');
+      handleRight.classList.remove('active');
+      document.body.style.userSelect = '';
+    }
+
+    handleLeft.addEventListener('mousedown', (e) => startDrag('left', e));
+    handleRight.addEventListener('mousedown', (e) => startDrag('right', e));
+    handleLeft.addEventListener('touchstart', (e) => startDrag('left', e));
+    handleRight.addEventListener('touchstart', (e) => startDrag('right', e));
+
+    window.addEventListener('mousemove', onDrag);
+    window.addEventListener('touchmove', onDrag);
+    window.addEventListener('mouseup', endDrag);
+    window.addEventListener('touchend', endDrag);
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33-web-fonts</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Orbitron:wght@400;700;900&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;700&display=swap');
+
+        /* Estilos para las cajas */
+        .caja-negra-individual {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            padding: 40px 30px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        /* Ejemplo con Dancing Script */
+        .fuente-dancing {
+            font-family: "Dancing Script", cursive;
+            font-size: 60px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(255, 107, 107, 0.5);
+            margin: 10px 0;
+        }
+
+        /* Ejemplo con Orbitron */
+        .fuente-orbitron {
+            font-family: "Orbitron", sans-serif;
+            font-size: 45px;
+            color: #00ff88;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+
+        /* Ejemplo con Merriweather */
+        .fuente-merriweather {
+            font-family: "Merriweather", serif;
+            font-size: 50px;
+            color: #ffa500;
+            font-weight: 700;
+            font-style: italic;
+            text-shadow: 0 2px 15px rgba(255, 165, 0, 0.4);
+            margin: 10px 0;
+        }
+
+        /* Ejemplo con Montserrat */
+        .fuente-montserrat {
+            font-family: "Montserrat", sans-serif;
+            font-size: 40px;
+            color: #4a90d9;
+            font-weight: 300;
+            text-shadow: 0 2px 10px rgba(74, 144, 217, 0.3);
+            margin: 10px 0;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+    <a href="../03-css/index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path></svg>    </a>
+    <main>
+        <header>
+            <h1>33 - Web Fonts</h1>
+            <h2>Use fonts that are not installed on the user's computer.</h2>
+        </header>
+        <!-- Dancing Script -->
+            <div class="caja-negra-individual">
+                <div class="fuente-dancing">Dancing Script</div>
+                <p style="color: #e49d9d; font-family: Arial, sans-serif; font-size: 14px;">Fuente cursiva elegante</p>
+            </div>
+
+            <!-- Orbitron -->
+            <div class="caja-negra-individual">
+                <div class="fuente-orbitron">ORBITRON</div>
+                <p style="color: #e98f8f; font-family: Arial, sans-serif; font-size: 14px;">Fuente futurista y tecnológica</p>
+            </div>
+
+            <!-- Merriweather -->
+            <div class="caja-negra-individual">
+                <div class="fuente-merriweather">Merriweather</div>
+                <p style="color: #e77676; font-family: Arial, sans-serif; font-size: 14px;">Fuente serif con estilo</p>
+            </div>
+
+            <!-- Montserrat -->
+            <div class="caja-negra-individual">
+                <div class="fuente-montserrat">MONTSERRAT</div>
+                <p style="color: #e67171; font-family: Arial, sans-serif; font-size: 14px;">Fuente sans-serif moderna</p>
+            </div>
+    </main>
+</body>
+</html>

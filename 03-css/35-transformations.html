@@ -1,0 +1,131 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35-Transformations</title>
+    <link rel="stylesheet" href="../src/css/03-css.css">
+    <style>
+        /* Estilos específicos para transformations */
+        .caja-negra-individual {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .caja-negra-individual h3 {
+            border-bottom: none !important;
+            padding-bottom: 10px !important;
+            margin: 0 0 1rem 0 !important;
+            display: inline-block !important;
+            position: relative !important;
+        }
+
+        /* MANTENER LA LÍNEA NEÓN */
+        .caja-negra-individual h3::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 2px !important;
+            background: linear-gradient(90deg, #bb4dff, #ff66cc, #ff00ff, #bb4dff) !important;
+            background-size: 200% auto !important;
+            border-radius: 2px !important;
+            animation: neonLine 2s ease-in-out infinite, linePulse 1.5s ease-in-out infinite !important;
+            display: block !important;
+        }
+
+        /* Las animaciones ya existen en tu CSS, pero las repito por si acaso */
+        @keyframes neonLine {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes linePulse {
+            0%, 100% {
+                box-shadow: 0 0 2px #bb4dff, 0 0 4px #ff66cc;
+                height: 2px;
+            }
+            50% {
+                box-shadow: 0 0 8px #bb4dff, 0 0 12px #ff66cc, 0 0 16px #ff00ff;
+                height: 3px;
+            }
+        }
+
+        /* Estilos para las imágenes - SIN BORDE */
+        .caja-negra-individual img {
+            border-radius: 12px;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        /* Transformaciones individuales */
+        .caja-rotate img:hover {
+            transform: rotate(20deg);
+        }
+
+        .caja-scale img:hover {
+            transform: scale(1.2);
+        }
+
+        .caja-translate img:hover {
+            transform: translateY(-20px);
+        }
+
+        .caja-skew img:hover {
+            transform: skew(-10deg, 5deg);
+        }
+
+        .caja-combo img:hover {
+            transform: rotate(-10deg) scale(1.15) translateY(-10px);
+        }
+
+    </style>
+</head>
+<body>
+    <a href="../03-css/index.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path></svg>    </a>
+    <main>
+        <header>
+            <h1>35 - Transformations</h1>
+            <h2>Property lets you rotate, scale, skew, or translate an element</h2>
+        </header>
+        <div class="contenedor-cards">
+                <!-- Rotate -->
+                <div class="caja-negra-individual caja-rotate">
+                    <h3>Rotate</h3>
+                    <img src="../src/imgs/antifloo.webp" alt="Rotate">
+                </div>
+
+                <!-- Scale -->
+                <div class="caja-negra-individual caja-scale">
+                    <h3>Scale</h3>
+                    <img src="../src/imgs/antifloo.webp" alt="Scale">
+                </div>
+
+                <!-- Translate -->
+                <div class="caja-negra-individual caja-translate">
+                    <h3>Translate</h3>
+                    <img src="../src/imgs/antifloo.webp" alt="Translate">
+                </div>
+
+                <!-- Skew -->
+                <div class="caja-negra-individual caja-skew">
+                    <h3>Skew</h3>
+                    <img src="../src/imgs/antifloo.webp" alt="Skew">
+                </div>
+
+                <!-- Combined -->
+                <div class="caja-negra-individual caja-combo">
+                    <h3>Combined</h3>
+                    <img src="../src/imgs/antifloo.webp" alt="Combined">
+                </div>
+            </div>
+    </main>
+</body>
+</html>
