@@ -222,7 +222,9 @@
     .seasons{ grid-template-columns: repeat(2, 1fr); }
   }
 
+  /* Formato mobil: todo el contenido del recuadro en una sola columna */
   @container gowbox (max-width: 480px){
+    .seasons{ grid-template-columns: 1fr; }
     .char-card{ flex-direction: column; }
     .char-card img{ width: 100%; height: 220px; }
     .char-info{ padding: 16px; }
