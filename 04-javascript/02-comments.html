@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01 - Write</title>
+    <link rel="stylesheet" href="../src/css/04-javascript.css" />
+    <style>
+        /* Centrar el reloj en la pantalla */
+        main {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Altura completa de la ventana */
+        }
+        section {
+            flex: 1; /* Ocupa todo el espacio restante */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Opcional: ajustar el reloj para que se vea bien */
+        #clock {
+            font-family: 'Courier New', monospace;
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #f7df1e;
+            background: #0a0a12;
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            border: 2px solid #f7df1e;
+            display: inline-block;
+            box-shadow: 0 0 30px rgba(247, 223, 30, 0.2);
+            letter-spacing: 4px;
+            text-shadow: 0 0 12px rgba(247, 223, 30, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón flotante para volver (usa la clase .home-btn del CSS externo) -->
+    <a href="javascript:history.back()" class="home-btn" title="Volver">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
+        </svg>
+    </a>
+    <main>
+        <header>
+            <div class="logo-badge" aria-hidden="true">JS</div>
+            <h1>02 - comments</h1>
+            <h4>add comments to explain and annotate your code</h4>
+               <p>digital time. <br></p>
+        </header>
+
+        <section>
+        
+            <!-- Reloj en tiempo real -->
+            <div id="clock"></div>
+        </section>
+    </main>
+
+    <script>
+        // Función para actualizar el reloj
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        // Actualizar inmediatamente y luego cada segundo
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>

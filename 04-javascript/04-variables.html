@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 - Variables</title>
+    <link rel="stylesheet" href="../src/css/04-javascript.css">
+
+</head>
+<body>
+     <a href="javascript:history.back()" class="home-btn" title="Volver">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
+        </svg>
+    </span>
+    <span class="home-text"></span>
+</a>
+    <main>
+        <main>
+            <header>
+                <h1>04 - Variables</h1>
+                <h2>This way we can include CSS within the style tag, it is very useful when you only have an html document.</h2>
+            </header>
+           
+            <section>
+            <div class="recuadro">
+            <h3>Type String:    <small class="type-string"></small></h3>
+            <h3>Type Number:    <small class="type-number"></small></h3>
+            <h3>Type Boolean:   <small class="type-boolean"></small></h3>
+            <h3>Type Null:      <small class="type-null"></small></h3>
+            <h3>Type Undefined: <small class="type-undefined"></small></h3>
+            <h3>Type Array:     <small class="type-array"></small></h3>
+            <h3>Type Object:    <small class="type-object"></small></h3>
+            </div>
+        </section>
+        </main>
+        <script>
+            // Type String
+            const tstring = document.querySelector('.type-string');
+            const message = "Hello JS 💛!";
+            tstring.textContent = `${message} (${message.length} characters)`;
+
+            // Type Number
+            const tnumber = document.querySelector('.type-number');
+            const num1 = 45;
+            const num2 = 12.4;
+            tnumber.textContent = ` (45 + 12.4) -> = ${num1 + num2}`;
+
+            // Type Boolean
+            const tboolean = document.querySelector('.type-boolean');
+            const isTrue = (4>8);
+            tboolean.textContent = ` (4>8) -> ${isTrue}`;
+
+            // Type Null
+            const tnull = document.querySelector('.type-null');
+            const isCreate  = null;
+            tnull.textContent = ` (isCreate) -> ${isCreate}`;
+
+            // Type Undefined
+            const tundefined = document.querySelector('.type-undefined');
+            const isBinary = undefined;
+            tundefined.textContent = ` (isBinary) -> ${isBinary}`;
+
+            // Type Array
+            const tarray = document.querySelector('.type-array');
+            const landscapes = ['🏙️', '🌆', '🌇'];
+            tarray.textContent = `Landscapes -> ${landscapes}`;
+
+            // Type Object
+            const tobject = document.querySelector('.type-object');
+            const hashira = {
+                name: 'Kyojuro Rengoku',
+                type: '🔥',
+                age: 20
+            }
+            tobject.textContent = `Hashira -> ${hashira.name} -> (${hashira.type}).`;
+            
+
+        </script>
+</body>
+</html>

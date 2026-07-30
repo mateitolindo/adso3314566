@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05 - Methods and Objects</title>
+
+    <link rel="stylesheet" href="../src/css/04-javascript.css" />
+    <link rel="stylesheet" href="../src/css/animate.min.css" />
+
+    <style>
+        main section h3.pk-name {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        main section h4 {
+            background-color: #fff9;
+            color: #0009;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1.6rem;
+            margin: 0 auto;
+            padding: 0.4rem 1rem;
+            width: fit-content;
+        }
+
+        main section figure {
+            background-repeat: no-repeat;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            height: 192px;
+            width: 202px;
+        }
+
+        main section figure.alive {
+            background-position-x: 0px;
+        }
+
+        main section figure.attack {
+            background-position-x: -202px;
+        }
+
+        main section figure.feed {
+            background-position-x: -404px;
+        }
+
+        main section figure.dead {
+            background-position-x: -608px;
+        }
+
+        main section div.actions {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 150px;
+        }
+
+        main section div.actions button {
+            background: #fff9;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 0.4rem 1rem;
+            transition: transform 0.2s ease-in;
+        }
+
+        main section div.actions button:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()" class="home-btn" title="Volver">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
+        </svg>
+        </span>
+        <span class="home-text"></span>
+    </a>
+
+    <main>
+
+        <header>
+            <h1>05 - Methods and Objects</h1>
+            <h2>This way we can include CSS within the style tag, it is very useful when you only have an html document.</h2>
+        </header>
+
+        <div class="recuadro">
+            <section>
+                <h3 class="pk-name"></h3>
+                <h4 class="pk-hp"></h4>
+
+                <figure class="pk-image animate__animated"></figure>
+
+                <div class="actions">
+                    <button class="btn-attack">Attack 👊</button>
+                    <button class="btn-feed">Feed 🍽️</button>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script>
+
+        // Elements
+        const pkName = document.querySelector('.pk-name');
+        const pkHp = document.querySelector('.pk-hp');
+        const pkImage = document.querySelector('.pk-image');
+
+        // Buttons
+        const btnAttack = document.querySelector('.btn-attack');
+        const btnFeed = document.querySelector('.btn-feed');
+
+        // Object
+        const pokemon = {
+
+            // Attributes
+            name: 'Snorlax',
+            type: 'Normal',
+            hp: 100,
+            image: '../04-javascript/img/snorlax-sprite.png',
+            status: 'alive',
+
+            // Render
+            render: function () {
+                pkName.innerHTML = `${this.name} <small>(${this.type})</small>`;
+                pkImage.style.backgroundImage = `url(${this.image})`;
+                this.updateHp('animate__rubberBand');
+            },
+
+            // Update HP and classes
+            updateHp: function (fx) {
+
+                pkHp.innerHTML = `HP: ${this.hp}`;
+
+                pkImage.classList.remove(
+                    'alive',
+                    'attack',
+                    'feed',
+                    'dead',
+                    'animate__rubberBand'
+                );
+
+                pkImage.classList.add(this.status, fx);
+            },
+
+            // Feed
+            feed: function () {
+
+                if (this.hp < 200) {
+
+                    this.hp += 25;
+                    this.status = 'feed';
+
+                    this.updateHp('animate__rubberBand');
+                    this.updateStatus();
+                }
+            },
+
+            // Attack
+            attack: function () {
+
+                if (this.hp > 0) {
+
+                    this.hp -= 25;
+
+                    if (this.hp <= 0) {
+                        this.hp = 0;
+                        this.status = 'dead';
+                    } else {
+                        this.status = 'attack';
+                    }
+
+                    this.updateHp('animate__rubberBand');
+
+                    if (this.hp > 0) {
+                        this.updateStatus();
+                    }
+                }
+            },
+
+            // Return to alive after animation
+            updateStatus: function () {
+
+                setTimeout(() => {
+
+                    this.status = 'alive';
+
+                    pkImage.classList.remove(
+                        'attack',
+                        'feed',
+                        'animate__rubberBand'
+                    );
+
+                    pkImage.classList.add('alive');
+
+                }, 1200);
+            }
+
+        };
+
+        // Initial render
+        pokemon.render();
+
+        // Events
+        btnFeed.addEventListener('click', function () {
+            pokemon.feed();
+        });
+
+        btnAttack.addEventListener('click', function () {
+            pokemon.attack();
+        });
+
+    </script>
+
+</body>
+
+</html>
