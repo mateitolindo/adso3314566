@@ -188,7 +188,7 @@
             top: 0 !important;
             height: 100% !important;
             z-index: 1 !important;
-            background-image: url('../src/imgs/cielo.png') !important;
+            background-image: url('../src/imgs/cielo-loop.png') !important;
             background-size: auto 100% !important;
         }
 
@@ -198,8 +198,8 @@
             bottom: var(--road-h) !important;
             height: auto !important;
             z-index: 2 !important;
-            background-image: url('../src/imgs/montañas.png') !important;
-            background-size: 100% 100% !important;   /* ← ESTIRA LA IMAGEN */
+            background-image: url('../src/imgs/montanas-loop.png') !important;
+            background-size: 200% 100% !important;   /* ← ESTIRA LA IMAGEN (la imagen -loop es doble: original + espejo) */
         }
 
         /* 3 · CARRETERA — franja inferior, anclada abajo */
@@ -208,7 +208,7 @@
             bottom: 0 !important;
             height: var(--road-h) !important;
             z-index: 3 !important;
-            background-image: url('../src/imgs/carretera.png') !important;
+            background-image: url('../src/imgs/carretera-loop.png') !important;
             background-size: auto 100% !important;
         }
 
@@ -294,6 +294,8 @@
 
         .control-btn:active { transform: scale(0.95) !important; }
         .control-btn.btn-off { color: #ff4d4d !important; }
+        .control-btn:disabled { opacity: 0.35 !important; cursor: not-allowed !important; }
+        .control-btn:disabled:active { transform: none !important; }
 
         .control-btn svg {
             width: 20px !important;
