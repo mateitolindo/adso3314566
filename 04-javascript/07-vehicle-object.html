@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07 - vehicle-object</title>
+
+    <link rel="stylesheet" href="../src/css/04-javascript.css" />
+    <link rel="stylesheet" href="../src/css/animate.min.css" />
+
+    <style>
+        /* =========================================
+           ESTILOS DEL COMPONENTE VEHICLE-OBJECT
+           ========================================= */
+
+        .app-container {
+            width: 400px !important;
+            margin: 20px auto !important;
+            background-color: #0d1117 !important;
+            color: #ffffff !important;
+            font-family: Arial, Helvetica, sans-serif !important;
+            border-radius: 30px !important;
+            overflow: hidden !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            user-select: none !important;
+        }
+
+        /* CABECERA */
+        .app-header {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            padding: 20px 20px 10px 20px !important;
+            position: relative !important;
+            background-color: #0d1117 !important;
+        }
+
+        .logo-circle {
+            width: 60px !important;
+            height: 60px !important;
+            background-color: #000 !important;
+            border: 3px solid #39ff14 !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            font-weight: bold !important;
+            color: #39ff14 !important;
+            font-size: 28px !important;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3) !important;
+        }
+
+        .brand-name {
+            font-weight: 900 !important;
+            font-size: 20px !important;
+            margin-top: 10px !important;
+            letter-spacing: 0.5px !important;
+            color: #ffffff !important;
+        }
+
+        .theme-toggle {
+            position: absolute !important;
+            right: 25px !important;
+            top: 25px !important;
+            font-size: 22px !important;
+            cursor: pointer !important;
+            color: #ccc !important;
+            display: flex !important;
+            gap: 12px !important;
+        }
+
+        /* NAVEGACIÓN SUPERIOR */
+        .top-nav-wrapper {
+            position: relative !important;
+            padding: 0 20px !important;
+            margin-top: 15px !important;
+            height: 70px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .watermark {
+            position: absolute !important;
+            top: -15px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            font-size: 65px !important;
+            font-weight: 900 !important;
+            color: rgba(255, 255, 255, 0.06) !important;
+            white-space: nowrap !important;
+            z-index: 0 !important;
+            pointer-events: none !important;
+            letter-spacing: 2px !important;
+        }
+
+        .top-nav {
+            position: relative !important;
+            z-index: 1 !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
+            gap: 12px !important;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            color: white !important;
+            padding: 10px 15px !important;
+            border-radius: 10px !important;
+            cursor: pointer !important;
+            font-size: 12px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            transition: background 0.2s !important;
+        }
+        .nav-btn:hover { background: rgba(255, 255, 255, 0.15) !important; }
+
+        .nav-title {
+            flex-grow: 1 !important;
+            text-align: center !important;
+            background-color: #212d3b !important;
+            padding: 10px 15px !important;
+            border-radius: 10px !important;
+            font-weight: bold !important;
+            font-size: 13px !important;
+            letter-spacing: 1px !important;
+            color: #fff !important;
+            border: 1px solid rgba(255,255,255,0.05) !important;
+        }
+
+        /* SELECTORES */
+        .category-selectors {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 10px !important;
+            padding: 15px 20px !important;
+            margin-top: 5px !important;
+        }
+
+        .selector-card {
+            background-color: #161b22 !important;
+            height: 65px !important;
+            border-radius: 10px !important;
+            padding: 12px !important;
+            font-size: 13px !important;
+            font-weight: bold !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            color: #fff !important;
+        }
+
+        /* =========================================
+           ESCENARIO (PARALLAX)  ·  AJUSTADO
+           ========================================= */
+
+        .stage-viewer {
+            position: relative !important;
+            width: 100% !important;
+            height: 280px !important;
+            background-color: #7ac1e4 !important;
+            overflow: hidden !important;
+
+            --road-h: 70px;   /* alto de la franja de carretera */
+            --ground: 22px;   /* altura a la que apoyan las ruedas */
+        }
+
+        .parallax-layer {
+            position: absolute !important;
+            left: 0 !important;
+            width: 100% !important;
+            background-repeat: repeat-x !important;
+            background-position: 0 0;   /* sin !important: lo controla el JS */
+            will-change: background-position !important;
+        }
+
+        /* 1 · CIELO — cubre todo el escenario */
+        .layer-clouds {
+            top: 0 !important;
+            height: 100% !important;
+            z-index: 1 !important;
+            background-image: url('../src/imgs/cielo.png') !important;
+            background-size: auto 100% !important;
+        }
+
+        /* 2 · MONTAÑAS — se ESTIRA para llenar el hueco hasta el asfalto */
+        .layer-mountains {
+            top: 0 !important;
+            bottom: var(--road-h) !important;
+            height: auto !important;
+            z-index: 2 !important;
+            background-image: url('../src/imgs/montañas.png') !important;
+            background-size: 100% 100% !important;   /* ← ESTIRA LA IMAGEN */
+        }
+
+        /* 3 · CARRETERA — franja inferior, anclada abajo */
+        .layer-road {
+            top: auto !important;
+            bottom: 0 !important;
+            height: var(--road-h) !important;
+            z-index: 3 !important;
+            background-image: url('../src/imgs/carretera.png') !important;
+            background-size: auto 100% !important;
+        }
+
+        /* 4 · MOTO — apoyada sobre el asfalto */
+        .vehicle-container {
+            position: absolute !important;
+            bottom: var(--ground) !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            z-index: 4 !important;
+            width: 240px !important;
+            display: flex !important;
+            justify-content: center !important;
+            transition: filter 0.3s ease !important;
+        }
+
+        /* Sombra de contacto: "pega" la moto al asfalto */
+        .vehicle-container::after {
+            content: "" !important;
+            position: absolute !important;
+            bottom: -4px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 78% !important;
+            height: 14px !important;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 72%) !important;
+            z-index: -1 !important;
+            pointer-events: none !important;
+        }
+
+        .vehicle-img {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            object-fit: contain !important;
+            filter: drop-shadow(0 8px 8px rgba(0,0,0,0.7)) !important;
+            transform-origin: 50% 100% !important;
+        }
+
+        /* Vibración del motor */
+        @keyframes bike-idle {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25%      { transform: translateY(-1px) rotate(-0.35deg); }
+            75%      { transform: translateY(1px) rotate(0.35deg); }
+        }
+        @keyframes bike-run {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-2px); }
+        }
+        .vehicle-container.is-on .vehicle-img     { animation: bike-idle 0.15s infinite linear !important; }
+        .vehicle-container.is-moving .vehicle-img { animation: bike-run 0.22s infinite linear !important; }
+
+        /* CONTROLES */
+        .controls-bar {
+            display: grid !important;
+            grid-template-columns: repeat(5, 1fr) !important;
+            gap: 8px !important;
+            padding: 20px !important;
+            background-color: #0d1117 !important;
+            margin-top: 10px !important;
+        }
+
+        .control-btn {
+            background-color: #161b22 !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            color: #ffffff !important;
+            padding: 15px 0 !important;
+            border-radius: 12px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 8px !important;
+            cursor: pointer !important;
+            font-size: 12px !important;
+            font-weight: bold !important;
+            transition: all 0.2s !important;
+        }
+
+        .control-btn:hover {
+            background-color: #21262d !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .control-btn:active { transform: scale(0.95) !important; }
+        .control-btn.btn-off { color: #ff4d4d !important; }
+
+        .control-btn svg {
+            width: 20px !important;
+            height: 20px !important;
+            fill: currentColor !important;
+        }
+
+        /* PIE DE PÁGINA */
+        .app-footer {
+            background-color: #000000 !important;
+            padding: 20px !important;
+            text-align: center !important;
+            border-bottom: 8px solid #39ff14 !important;
+            font-weight: 900 !important;
+            font-size: 30px !important;
+            letter-spacing: 2px !important;
+            color: #ffffff !important;
+            margin-top: 5px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="javascript:history.back()" class="home-btn" title="Volver">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M219,103.48V208a16,16,0,0,1-16,16H152a16,16,0,0,1-16-16V160H120v48a16,16,0,0,1-16,16H53a16,16,0,0,1-16-16V103.48a16,16,0,0,1,5.29-11.89l75-69.23a16,16,0,0,1,21.42,0l75,69.23A16,16,0,0,1,219,103.48Z"></path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>07 - vehicle-object</h1>
+            <h2>ya casi termino</h2>
+        </header>
+
+        <div class="recuadro">
+            <section>
+                <div class="app-container">
+
+                    <!-- CABECERA -->
+                    <div class="app-header">
+                        <div class="logo-circle">K</div>
+                        <span class="brand-name">Kawasaki</span>
+                        <div class="theme-toggle">&#9790; &#9728;</div>
+                    </div>
+
+                    <!-- NAVEGACIÓN CON MARCA DE AGUA -->
+                    <div class="top-nav-wrapper">
+                        <div class="watermark">Kawasaki</div>
+                        <div class="top-nav">
+                            <button class="nav-btn">&#8617; Prev</button>
+                            <div class="nav-title">KAWASAKI</div>
+                            <button class="nav-btn">Next &#8618;</button>
+                        </div>
+                    </div>
+
+                    <!-- SELECTORES -->
+                    <div class="category-selectors">
+                        <div class="selector-card">Model</div>
+                        <div class="selector-card">Refer</div>
+                        <div class="selector-card">Color &#127912;</div>
+                    </div>
+
+                    <!-- ESCENARIO PARALLAX -->
+                    <div class="stage-viewer">
+                        <div class="parallax-layer layer-clouds"></div>
+                        <div class="parallax-layer layer-mountains"></div>
+                        <div class="parallax-layer layer-road"></div>
+
+                        <div class="vehicle-container">
+                            <img src="../src/imgs/Z1000.png" class="vehicle-img" alt="Kawasaki Z1000" />
+                        </div>
+                    </div>
+
+                    <!-- CONTROLES -->
+                    <div class="controls-bar">
+                        <button class="control-btn" id="btn-on">
+                            <span>On</span>
+                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <button class="control-btn" id="btn-forw">
+                            <span>Forw</span>
+                            <svg viewBox="0 0 24 24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg>
+                        </button>
+                        <button class="control-btn" id="btn-stop">
+                            <span>Stop</span>
+                            <svg viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                        <button class="control-btn" id="btn-back">
+                            <span>Back</span>
+                            <svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/></svg>
+                        </button>
+                        <button class="control-btn btn-off" id="btn-off">
+                            <span>Off</span>
+                            <svg viewBox="0 0 24 24"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- PIE DE PÁGINA -->
+                    <div class="app-footer">Kawasaki</div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- LÓGICA DE LOS BOTONES (JAVASCRIPT EXTERNO) -->
+    <script src="07-vehicle-object.js"></script>
+
+</body>
+</html>
