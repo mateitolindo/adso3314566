@@ -6,10 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>07 - vehicle-object</title>
 
+    <!-- Aplica el tema guardado antes de pintar (evita el parpadeo) -->
+    <script>
+        try { document.documentElement.setAttribute('data-theme', localStorage.getItem('vehicle-theme') === 'light' ? 'light' : 'dark'); }
+        catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    </script>
+
     <link rel="stylesheet" href="../src/css/04-javascript.css" />
     <link rel="stylesheet" href="../src/css/animate.min.css" />
 
     <style>
+        /* =========================================
+           TEMAS · OSCURO (por defecto) y CLARO
+           Todo el color del componente sale de estas variables.
+           ========================================= */
+        :root {
+            --page-bg: #121212;
+            --main-bg: #1e1e2a;
+            --main-border: #2a2a3a;
+            --section-bg: #181822;
+            --section-border: #2a2a3e;
+            --page-title: #f7df1e;
+            --page-subtitle: #a0a0b8;
+            --page-text: #eaeaea;
+
+            --app-bg: #0d1117;
+            --text: #ffffff;
+            --muted: #cccccc;
+            --accent: #39ff14;
+            --accent-glow: rgba(57, 255, 20, 0.3);
+            --accent-glow-strong: rgba(57, 255, 20, 0.45);
+            --bike-glow: rgba(57, 255, 20, 0.55);
+            --danger: #ff4d4d;
+            --logo-bg: #000000;
+            --border-soft: rgba(255, 255, 255, 0.05);
+            --app-border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            --nav-btn-bg: rgba(255, 255, 255, 0.08);
+            --nav-btn-hover: rgba(255, 255, 255, 0.15);
+            --nav-title-bg: #212d3b;
+            --card-bg: #161b22;
+            --card-hover: #21262d;
+            --watermark: rgba(255, 255, 255, 0.06);
+            --footer-bg: #000000;
+            --app-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+        }
+
+        html[data-theme="light"] {
+            --page-bg: #e6e9f0;
+            --main-bg: #f7f8fc;
+            --main-border: #d3d8e4;
+            --section-bg: #eceff6;
+            --section-border: #d3d8e4;
+            --page-title: #a16207;
+            --page-subtitle: #4b5563;
+            --page-text: #1f2430;
+
+            --app-bg: #ffffff;
+            --text: #0d1117;
+            --muted: #4b5563;
+            --accent: #16a34a;
+            --accent-glow: rgba(22, 163, 74, 0.25);
+            --accent-glow-strong: rgba(22, 163, 74, 0.4);
+            --bike-glow: rgba(22, 163, 74, 0.5);
+            --danger: #dc2626;
+            --logo-bg: #ffffff;
+            --border-soft: rgba(13, 17, 23, 0.1);
+            --app-border: rgba(13, 17, 23, 0.12);
+            --border-hover: rgba(13, 17, 23, 0.3);
+            --nav-btn-bg: rgba(13, 17, 23, 0.06);
+            --nav-btn-hover: rgba(13, 17, 23, 0.12);
+            --nav-title-bg: #e3e8f0;
+            --card-bg: #f1f4f9;
+            --card-hover: #e2e8f1;
+            --watermark: rgba(13, 17, 23, 0.06);
+            --footer-bg: #eef1f6;
+            --app-shadow: 0 15px 35px rgba(30, 41, 59, 0.22);
+        }
+
+        /* Fondo de la página (viene de 04-javascript.css, aquí solo cambia el color) */
+        body { background: var(--page-bg); color: var(--page-text); transition: background 0.3s ease, color 0.3s ease; }
+        main { background: var(--main-bg); border-color: var(--main-border); transition: background 0.3s ease; }
+        header { border-bottom-color: var(--main-border); }
+        header h1 { color: var(--page-title); }
+        header h2 { color: var(--page-subtitle); }
+        section { background: var(--section-bg); border-color: var(--section-border); }
+        html[data-theme="light"] header h1 { text-shadow: none; }
+        html[data-theme="light"] .home-btn { border-color: #ffffff; box-shadow: 0 4px 16px rgba(161, 98, 7, 0.3); }
         /* =========================================
            ESTILOS DEL COMPONENTE VEHICLE-OBJECT
            ========================================= */
@@ -17,15 +100,16 @@
         .app-container {
             width: 400px !important;
             margin: 20px auto !important;
-            background-color: #0d1117 !important;
-            color: #ffffff !important;
+            background-color: var(--app-bg) !important;
+            color: var(--text) !important;
             font-family: Arial, Helvetica, sans-serif !important;
             border-radius: 30px !important;
             overflow: hidden !important;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9) !important;
+            box-shadow: var(--app-shadow) !important;
+            transition: background-color 0.3s ease, color 0.3s ease !important;
             display: flex !important;
             flex-direction: column !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid var(--app-border) !important;
             user-select: none !important;
         }
 
@@ -36,22 +120,22 @@
             align-items: center !important;
             padding: 20px 20px 10px 20px !important;
             position: relative !important;
-            background-color: #0d1117 !important;
+            background-color: var(--app-bg) !important;
         }
 
         .logo-circle {
             width: 60px !important;
             height: 60px !important;
-            background-color: #000 !important;
-            border: 3px solid #39ff14 !important;
+            background-color: var(--logo-bg) !important;
+            border: 3px solid var(--accent) !important;
             border-radius: 50% !important;
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
             font-weight: bold !important;
-            color: #39ff14 !important;
+            color: var(--accent) !important;
             font-size: 28px !important;
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3) !important;
+            box-shadow: 0 0 20px var(--accent-glow) !important;
         }
 
         .brand-name {
@@ -59,19 +143,44 @@
             font-size: 20px !important;
             margin-top: 10px !important;
             letter-spacing: 0.5px !important;
-            color: #ffffff !important;
+            color: var(--text) !important;
         }
 
+        /* INTERRUPTOR DE TEMA (luna = oscuro · sol = claro) */
         .theme-toggle {
             position: absolute !important;
-            right: 25px !important;
-            top: 25px !important;
-            font-size: 22px !important;
-            cursor: pointer !important;
-            color: #ccc !important;
+            right: 20px !important;
+            top: 22px !important;
             display: flex !important;
-            gap: 12px !important;
+            gap: 4px !important;
+            padding: 3px !important;
+            border-radius: 999px !important;
+            background: var(--nav-btn-bg) !important;
+            border: 1px solid var(--border-soft) !important;
         }
+
+        .theme-btn {
+            width: 30px !important;
+            height: 30px !important;
+            border-radius: 50% !important;
+            border: none !important;
+            background: transparent !important;
+            color: var(--muted) !important;
+            font-size: 17px !important;
+            line-height: 1 !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s !important;
+        }
+        .theme-btn:hover { color: var(--text) !important; }
+        .theme-btn.is-active {
+            background: var(--accent) !important;
+            color: var(--app-bg) !important;
+            box-shadow: 0 0 10px var(--accent-glow) !important;
+        }
+        .theme-btn:focus-visible { outline: 2px solid var(--accent) !important; outline-offset: 2px !important; }
 
         /* NAVEGACIÓN SUPERIOR */
         .top-nav-wrapper {
@@ -91,7 +200,7 @@
             transform: translateX(-50%) !important;
             font-size: 65px !important;
             font-weight: 900 !important;
-            color: rgba(255, 255, 255, 0.06) !important;
+            color: var(--watermark) !important;
             white-space: nowrap !important;
             z-index: 0 !important;
             pointer-events: none !important;
@@ -109,9 +218,9 @@
         }
 
         .nav-btn {
-            background: rgba(255, 255, 255, 0.08) !important;
-            border: 1px solid rgba(255, 255, 255, 0.05) !important;
-            color: white !important;
+            background: var(--nav-btn-bg) !important;
+            border: 1px solid var(--border-soft) !important;
+            color: var(--text) !important;
             padding: 10px 15px !important;
             border-radius: 10px !important;
             cursor: pointer !important;
@@ -121,19 +230,19 @@
             gap: 6px !important;
             transition: background 0.2s !important;
         }
-        .nav-btn:hover { background: rgba(255, 255, 255, 0.15) !important; }
+        .nav-btn:hover { background: var(--nav-btn-hover) !important; }
 
         .nav-title {
             flex-grow: 1 !important;
             text-align: center !important;
-            background-color: #212d3b !important;
+            background-color: var(--nav-title-bg) !important;
             padding: 10px 15px !important;
             border-radius: 10px !important;
             font-weight: bold !important;
             font-size: 13px !important;
             letter-spacing: 1px !important;
-            color: #fff !important;
-            border: 1px solid rgba(255,255,255,0.05) !important;
+            color: var(--text) !important;
+            border: 1px solid var(--border-soft) !important;
         }
 
         /* SELECTORES */
@@ -146,17 +255,17 @@
         }
 
         .selector-card {
-            background-color: #161b22 !important;
+            background-color: var(--card-bg) !important;
             height: 65px !important;
             border-radius: 10px !important;
             padding: 12px !important;
             font-size: 13px !important;
             font-weight: bold !important;
-            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid var(--border-soft) !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
-            color: #fff !important;
+            color: var(--text) !important;
         }
 
         /* =========================================
@@ -171,7 +280,7 @@
             overflow: hidden !important;
 
             --road-h: 70px;   /* alto de la franja de carretera */
-            --ground: 22px;   /* altura a la que apoyan las ruedas */
+            --ground: 27px;   /* altura a la que apoyan las ruedas */
         }
 
         .parallax-layer {
@@ -219,17 +328,17 @@
             left: 50% !important;
             transform: translateX(-50%) !important;
             z-index: 4 !important;
-            width: 240px !important;
+            width: var(--bike-w, 224px) !important;
             display: flex !important;
             justify-content: center !important;
-            transition: filter 0.3s ease !important;
+            transition: filter 0.3s ease, width 0.3s ease !important;
         }
 
         /* Sombra de contacto: "pega" la moto al asfalto */
         .vehicle-container::after {
             content: "" !important;
             position: absolute !important;
-            bottom: -4px !important;
+            bottom: -9px !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
             width: 78% !important;
@@ -245,7 +354,23 @@
             display: block !important;
             object-fit: contain !important;
             filter: drop-shadow(0 8px 8px rgba(0,0,0,0.7)) !important;
-            transform-origin: 50% 100% !important;
+            transform-origin: var(--pivot, 17% 97%) !important;   /* rueda trasera (lo fija el JS por moto) */
+        }
+
+        /* Caballito: gira sobre la rueda trasera */
+        .vehicle-img {
+            rotate: 0deg;
+            translate: 0 0;
+            transition: rotate 0.6s cubic-bezier(.3,1.4,.5,1), opacity 0.18s ease, translate 0.18s ease !important;
+        }
+        .vehicle-container.is-wheelie .vehicle-img {
+            rotate: var(--wheelie-angle, -26deg);
+        }
+
+        /* Cambio de moto (Prev / Next): sale con fundido y desplazamiento */
+        .vehicle-img.is-swapping {
+            opacity: 0;
+            translate: var(--swap-dx, 0px) 0;
         }
 
         /* Vibración del motor */
@@ -264,17 +389,17 @@
         /* CONTROLES */
         .controls-bar {
             display: grid !important;
-            grid-template-columns: repeat(5, 1fr) !important;
-            gap: 8px !important;
-            padding: 20px !important;
-            background-color: #0d1117 !important;
+            grid-template-columns: repeat(6, 1fr) !important;
+            gap: 6px !important;
+            padding: 20px 14px !important;
+            background-color: var(--app-bg) !important;
             margin-top: 10px !important;
         }
 
         .control-btn {
-            background-color: #161b22 !important;
-            border: 1px solid rgba(255, 255, 255, 0.05) !important;
-            color: #ffffff !important;
+            background-color: var(--card-bg) !important;
+            border: 1px solid var(--border-soft) !important;
+            color: var(--text) !important;
             padding: 15px 0 !important;
             border-radius: 12px !important;
             display: flex !important;
@@ -282,18 +407,20 @@
             align-items: center !important;
             gap: 8px !important;
             cursor: pointer !important;
-            font-size: 12px !important;
+            font-size: 11px !important;
             font-weight: bold !important;
             transition: all 0.2s !important;
         }
 
         .control-btn:hover {
-            background-color: #21262d !important;
-            border-color: rgba(255, 255, 255, 0.2) !important;
+            background-color: var(--card-hover) !important;
+            border-color: var(--border-hover) !important;
         }
 
         .control-btn:active { transform: scale(0.95) !important; }
-        .control-btn.btn-off { color: #ff4d4d !important; }
+        .control-btn.btn-off { color: var(--danger) !important; }
+        .control-btn.btn-wheelie { color: var(--accent) !important; }
+        .control-btn.is-active { border-color: var(--accent) !important; box-shadow: 0 0 12px var(--accent-glow-strong) !important; }
         .control-btn:disabled { opacity: 0.35 !important; cursor: not-allowed !important; }
         .control-btn:disabled:active { transform: none !important; }
 
@@ -305,14 +432,14 @@
 
         /* PIE DE PÁGINA */
         .app-footer {
-            background-color: #000000 !important;
+            background-color: var(--footer-bg) !important;
             padding: 20px !important;
             text-align: center !important;
-            border-bottom: 8px solid #39ff14 !important;
+            border-bottom: 8px solid var(--accent) !important;
             font-weight: 900 !important;
             font-size: 30px !important;
             letter-spacing: 2px !important;
-            color: #ffffff !important;
+            color: var(--text) !important;
             margin-top: 5px !important;
         }
     </style>
@@ -340,24 +467,27 @@
                     <div class="app-header">
                         <div class="logo-circle">K</div>
                         <span class="brand-name">Kawasaki</span>
-                        <div class="theme-toggle">&#9790; &#9728;</div>
+                        <div class="theme-toggle" role="group" aria-label="Tema de la página">
+                            <button type="button" class="theme-btn" id="btn-dark" data-theme-set="dark" aria-label="Modo oscuro" title="Modo oscuro">&#9790;&#65038;</button>
+                            <button type="button" class="theme-btn" id="btn-light" data-theme-set="light" aria-label="Modo claro" title="Modo claro">&#9728;&#65038;</button>
+                        </div>
                     </div>
 
                     <!-- NAVEGACIÓN CON MARCA DE AGUA -->
                     <div class="top-nav-wrapper">
                         <div class="watermark">Kawasaki</div>
                         <div class="top-nav">
-                            <button class="nav-btn">&#8617; Prev</button>
+                            <button class="nav-btn" id="btn-prev">&#8617; Prev</button>
                             <div class="nav-title">KAWASAKI</div>
-                            <button class="nav-btn">Next &#8618;</button>
+                            <button class="nav-btn" id="btn-next">Next &#8618;</button>
                         </div>
                     </div>
 
                     <!-- SELECTORES -->
                     <div class="category-selectors">
-                        <div class="selector-card">Model</div>
-                        <div class="selector-card">Refer</div>
-                        <div class="selector-card">Color &#127912;</div>
+                        <div class="selector-card">Model vanilla</div>
+                        <div class="selector-card">Reference predefined</div>
+                        <div class="selector-card">Color vanilla &#127912;</div>
                     </div>
 
                     <!-- ESCENARIO PARALLAX -->
@@ -367,7 +497,7 @@
                         <div class="parallax-layer layer-road"></div>
 
                         <div class="vehicle-container">
-                            <img src="../src/imgs/Z1000.png" class="vehicle-img" alt="Kawasaki Z1000" />
+                            <img src="../src/imgs/moto-z1000.png" class="vehicle-img" alt="Kawasaki Z1000" />
                         </div>
                     </div>
 
@@ -388,6 +518,10 @@
                         <button class="control-btn" id="btn-back">
                             <span>Back</span>
                             <svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/></svg>
+                        </button>
+                        <button class="control-btn btn-wheelie" id="btn-wheelie">
+                            <span>Wheelie</span>
+                            <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
                         </button>
                         <button class="control-btn btn-off" id="btn-off">
                             <span>Off</span>
